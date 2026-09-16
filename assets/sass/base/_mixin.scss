@@ -96,7 +96,7 @@
 		line-height: $item-size;
 		margin: -($item-size * 0.5);
 
-		$angle: #{$angleCount / $item-count};
+		$angle: math.div($angleCount, $item-count);
 		$rot: $rotCount;
 
 		@for $i from 1 through $item-count {
@@ -125,6 +125,15 @@
 	}
 }
 
+// Dark Version
+@mixin dark {
+
+	/* Dark Mode Styles */
+	.dark-mode {
+		@content;
+	}
+}
+
 // Responsive Query
 @mixin hd {
 
@@ -134,10 +143,10 @@
 	}
 }
 
-@mixin xxl {
+@mixin xl {
 	
 	/* Extra large devices */
-	@media (max-width: #{$xxl}) {
+	@media (max-width: #{$xl}) {
 		@content;
 	}
 }
@@ -146,14 +155,6 @@
 
 	/* Medium Large devices */
 	@media (max-width: #{$ml}) {
-		@content;
-	}
-}
-
-@mixin xl {
-
-	/* Medium Large devices */
-	@media (max-width: #{$xl}) {
 		@content;
 	}
 }
@@ -186,20 +187,6 @@
 
 	/* Extra small devices */
 	@media (max-width: #{$xs}) {
-		@content;
-	}
-}
-
-@mixin vxs {
-
-	/* Extra small devices */
-	@media (max-width: #{$vxs}) { 
-		@content;
-	}
-}
-@mixin rtl { 
-	/* rtl Support */
-	[dir="rtl"] {
 		@content;
 	}
 }

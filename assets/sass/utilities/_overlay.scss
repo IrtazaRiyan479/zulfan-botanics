@@ -15,7 +15,6 @@
 
 [data-overlay] {
   position: relative;
-  z-index: 2;
   [class^="col-"],
   [class*="col-"] {
     z-index: 1;

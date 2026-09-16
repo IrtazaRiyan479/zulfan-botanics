@@ -13,21 +13,34 @@
   @include background-content(no-repeat, 100% 100%, center center);
 }
 
+.bg-light-2 {
+  background-color: #fde5d7;
+}
+
+.bg-light-3 {
+  background-color: rgba(#fdebe0, 0.36);
+}
+
+.bg-light-4 {
+  background-color: rgba(#fdebe0, 0.5);
+}
+
+.bg-light-5 {
+  background-color: #fcf2ee;
+}
+
 .bg-auto {
   background-size: auto auto;
 }
 
-.bg-top-center {
-  background-size: auto;
-  background-position: top center;
+.bg-gradient-1 {
+  background-image: linear-gradient(to bottom, #fcf2ee 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-.bg-bottom-center {
-  background-size: auto;
-  background-position: bottom center; 
+.bg-gradient-2 {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(#fcf2ee, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
 }
 
-.bg-repeat {
-  background-size: auto;
-  background-repeat: repeat;
+.bg-gradient-3 {
+  background-image: linear-gradient(to bottom, #fcf2ee 0%, rgba(0, 0, 0, 0) 20%);
 }

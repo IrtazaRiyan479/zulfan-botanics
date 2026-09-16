@@ -1,9 +1,82 @@
-.th-pagination {
+.post-pagination {
+  margin: 50px 0;
+}
+
+.post-pagi-box {
+  a {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: $title-color;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    i {
+      font-size: 18px;
+      width: 65px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      display: inline-block;
+      background-color: $body-color;
+      color: $white-color;
+      transition: all ease 0.4s;
+    }
+
+    &:hover {
+      i {
+        background-color: $theme-color;
+      }
+    }
+  }
+
+  &.next {
+    a {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+
+.vs-pagination {
   margin-bottom: 30px;
 
   ul {
     margin: 0;
     padding: 0;
+    list-style: none;
+  }
+
+  span,
+  a {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    color: $body-color;
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 50px;
+    min-height: 50px;
+    line-height: 48px;
+    padding: 0 15px;
+    z-index: 1;
+    letter-spacing: 0.1em;
+    border: 1px solid $border-color;
+    text-transform: uppercase;
+
+    i {
+      margin-left: 7px;
+    }
+
+    &.active,
+    &:hover {
+      color: $white-color;
+      background-color: $theme-color;
+      border-color: transparent;
+    }
   }
 
   li {
@@ -19,41 +92,64 @@
       margin-left: 0;
     }
   }
+}
 
-  span,
-  a {
-    display: inline-block;
-    text-align: center;
-    position: relative; 
-    color: $title-color;
-    background-color: #E7E7E7;  
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 0;  
-    z-index: 1;
-    font-size: 18px;
-    font-weight: 500;
+@include lg {
+  .post-pagination {
+    margin: 40px 0;
+  }
 
-    &.active,
-    &:hover {
-      color: $white-color;
-      background-color: $theme-color;
-      box-shadow: none;
+  .post-pagi-box {
+    a {
+      font-size: 18px;
+      gap: 15px;
+
+      i {
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+@include sm {
+  .vs-pagination {
+
+    span,
+    a {
+      min-width: 35px;
+      min-height: 35px;
+      line-height: 35px;
+      font-size: 12px;
+      padding: 0 10px;
+      letter-spacing: 0;
+    }
+
+    li {
+      margin: 0 2px;
+
+      &:first-child,
+      &:last-child {
+        a {
+          padding: 0 8px;
+        }
+      }
     }
   }
 
-}
-
-
-@include sm {
-  .th-pagination {
-    span, 
+  .post-pagi-box {
     a {
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 14px;
+      font-size: 16px;
+      gap: 10px;
+
+      i {
+        font-size: 14px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+      }
     }
   }
 }

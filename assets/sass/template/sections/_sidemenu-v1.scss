@@ -5,51 +5,46 @@
   top: 0;
   height: 100%;
   width: 0;
-  background-color: rgba(0, 0, 0, 0.70);
+  background-color: rgba(0, 0, 0, 0.75);
   opacity: 0;
   visibility: hidden;
   transition: all ease 0.8s;
 
-  .th-social {
-    a {
-      background-color: transparent;
-      border: 1px solid;
-      &:hover {
-        background-color: $theme-color;
-        border-color: $theme-color;
-      }
-    }
-  }
+  
 
 
   .closeButton {
     display: inline-block;
-    border: 2px solid;
-    @include equal-size(50px);
+    border: 1px solid;
+    width: 50px;
+    height: 50px;
     line-height: 50px;
     font-size: 24px;
     padding: 0;
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: $white-color;
+    background-color: $black-color;
+    color: $white-color;
     border-radius: 50%;
     transform: rotate(0);
     transition: all ease 0.4s;
+    z-index: 2;
 
     &:hover {
-      color: $theme-color;
-      border-color: $theme-color;
+      color: $white-color;
+      background-color: $theme-color;
+      border-color: transparent;
       transform: rotate(90deg);
     }
   }
 
 
   .sidemenu-content {
-    background-color: $white-color;
-    width: 450px;
+    background-color: $body-bg;
+    width: 400px;
     margin-left: auto;
-    padding: 80px 30px;
+    padding: 40px 40px 80px 40px;
     height: 100%;
     overflow: scroll;
     position: relative;
@@ -68,7 +63,6 @@
       width: 2px;
       background-color: #F5F5F5;
     }
-
   } 
 
   .widget {
@@ -77,6 +71,25 @@
     background-color: transparent;
   }
 
+  .widget_title {
+    margin-bottom: 36px;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 50px;
+      height: 2px;
+      background-color: $theme-color;
+    }
+  }
+
+  .footer-info {
+    color: #737373;
+  }
 
   &.show {
     opacity: 1;

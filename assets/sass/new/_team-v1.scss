@@ -1,0 +1,58 @@
+.vs-team-layout1 {
+  a {
+    color: inherit;
+  }
+
+  .vs-team-degi {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .social-links {
+    margin-bottom: 10px;
+    transition: all ease 0.4s;
+    position: relative;
+    top: -50px;
+    opacity: 0;
+    visibility: hidden;
+    margin: -20px 0 10px 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    a {
+      display: inline-block;
+      @include equal-size(40px);
+      background-color: $white-color;
+      line-height: 40px;
+      box-shadow: 0px 6px 12px 0px rgba(249, 163, 146, 0.2);
+      border-radius: 50%;
+
+      &:hover {
+        background-color: $theme-color;
+        color: $white-color;
+      }
+    }
+  }
+
+  .vs-team {
+    text-align: center;
+    margin-bottom: 20px;
+
+    &:hover {
+      .social-links {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+  }
+
+
+}

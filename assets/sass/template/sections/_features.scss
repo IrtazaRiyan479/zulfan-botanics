@@ -1,0 +1,153 @@
+.feature-style1 {
+  text-align: center;
+  background-color: $white-color;
+  padding: 0 40px 42px 40px;
+  outline: 1px dashed rgba(#9a563a, 0.5);
+  outline-offset: -12px;
+  margin: 35px 0 30px 0;
+  box-shadow: 2px 3.464px 19.53px 1.47px rgba(18, 27, 36, 0.11);
+  transition: all ease 0.4s;
+
+  
+  .vs-icon {
+    margin: -29px 0 25px 0;
+    --icon-size: 85px;
+    box-shadow: 0 0 0 14px $white-color;
+  }
+
+  .arrow-shape {
+    margin: 13px 0 14px 0;
+    opacity: 0.80;
+    
+    .arrow {
+      transition: all ease 0.4s;
+    }
+  }
+
+  .feature-title {
+    font-size: 26px;
+    margin: 0 0 10px 0;
+  }
+
+  .feature-text {
+    color: #6f6c6c;
+    margin: 0;
+    transition: all ease 0.4s;
+  }
+  
+  &:hover {
+    background-color: $theme-color;
+    outline-color: $white-color;
+    box-shadow: none;
+
+    .vs-icon {
+      box-shadow: 0 0 0 14px $theme-color;
+      background-color: $title-color;
+
+      &:before {
+        border-color: $white-color;
+      }
+    }
+
+    .arrow-shape .arrow {
+      background-color: $white-color;
+    }
+    
+    .feature-text,
+    .feature-title a {
+      color: $white-color;
+    }
+  }
+}
+
+
+.feature-style2 {
+  text-align: center;
+  outline: 1px dashed rgba(#9a563a, 0.5);
+  outline-offset: -15px;
+  padding: 0.1px 55px 55px 55px;
+  background-color: $white-color;
+  --icon-size: 140px;
+  margin: calc((var(--icon-size) / 3) + 8px) 0 30px 0;
+  box-shadow: 1.5px 2.598px 14.88px 1.12px rgba(116, 117, 117, 0.1);
+
+  .feature-text {
+    margin: 0 auto 28px auto;
+    color: #6f6c6c;
+    line-height: 22px;
+    max-width: 275px;
+  }
+
+  .vs-icon {
+    margin: calc(var(--icon-size) / -3) auto 24px auto;
+    display: block;
+    transition: all ease 0.4s;
+
+    img {
+      filter: none;
+      transition: all ease 0.4s;
+      transform: rotateY(0);
+    }
+  }
+
+  .arrow-shape {
+    margin: 17px 0 17px 0;
+    opacity: 0.50;
+  }
+
+  &:hover {
+    outline-color: $theme-color;
+
+    .vs-icon {
+      background-color: $theme-color;
+
+      img {
+        filter: brightness(0) invert(1);
+        transform: rotateY(180deg);        
+      }
+    }
+  }
+}
+
+
+@include ml {
+  .feature-style2 {
+    padding: 0.1px 40px 40px 40px;
+
+    .feature-title {
+      font-size: 24px;
+    }
+
+    .feature-text {
+      margin: 0 auto 18px auto;
+      font-size: 14px;
+    }
+
+    .arrow-shape {
+      margin: 7px 0 7px 0;
+    }
+  }
+}
+
+
+@include lg {
+  .feature-style1 {
+    .feature-title {
+      font-size: 22px;
+    }
+  }
+
+  .quote-text {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 10px 20px 10px 15px;
+  }
+
+  .feature-style2 {
+    --icon-size: 100px;
+
+    .feature-text {
+      margin: 0 auto 10px auto;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@media (min-width: $lg) {
+  .instagram-align-style1 {
+
+    >[class*=col-],
+    .slick-slide {
+      &:nth-child(even) {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.instagram-box {
+  position: relative;
+  overflow: hidden;
+
+
+  .insta-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white-color;
+    font-family: $title-font;
+    font-size: 18px;
+    font-weight: 400;
+    color: $theme-color;
+    display: inline-block;
+    width: 182px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    transition: all ease 0.4s;
+    opacity: 0;
+    visibility: hidden;
+
+    &:hover {
+      background-color: $theme-color;
+      color: $white-color;
+    }
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+
+  &:hover {
+    .insta-btn {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+
+@include sm {
+  .instagram-box { 
+    .insta-btn {
+      width: 130px;
+    }
+  }
+}

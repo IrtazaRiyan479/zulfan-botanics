@@ -1,154 +1,233 @@
-.sec-title {
-    margin-bottom: calc(var(--section-title-space) - 12px);
+.sec-btns {
+  margin-bottom: calc(var(--section-title-space));
+  display: inline-flex;
+  gap: 10px;
 }
-
-.sub-title {
-    display: block;
-    color: $theme-color;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: $title-font;
-    position: relative;
-    margin-bottom: 8px;
-    text-transform: capitalize;
-
-    &:has(img) {
-        margin-top: 0;
-    }
-
-    img {
-        margin: -5px 8px 0 8px;
-        @include md {  
-            display: none;
-        }
-    }
-
-    &.style2 {
-        img {
-            margin: 8px 0 0 0;
-        }
-    }
-}
-
-.box-title {
-    font-size: 24px;
-    line-height: 1.417;
-    font-weight: 700;
-    margin-top: -0.32em;
-
-    @media(max-width: 1399px) {
-        font-size: 20px;
-        line-height: 30px;
-
-    }
-
-    @include md {
-        font-size: 18px;
-        line-height: 28px;
-    }
-
-    a {
-        color: inherit;
-
-        &:hover {
-            color: $theme-color;
-        }
-    }
-}
-
 
 .title-area {
-    margin-bottom: calc(var(--section-title-space) - 12px);
-    position: relative;
-    z-index: 2;
-    margin-top: -6px;
-
-    .sec-title {
-        margin-bottom: 20px;
-    }
-    .sub-title img {
-        margin: -5px 8px 0 8px;
-    }
-    img {
-        margin-bottom: 15px;  
-    }
-
-    .sec-text {
-        max-width: 810px;
-        display: block;
-        margin: auto; 
-    }
-
-    .th-btn {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
+  margin-bottom: calc(var(--section-title-space) - 15px);
+  position: relative;
 }
 
-hr.title-line {
-    margin-top: 0;
-    background-color: $border-color;
-    opacity: 1;
+.sec-subtitle2,
+.sec-subtitle {
+  display: block;
+  text-transform: uppercase;
+  color: $theme-color;
+  font-family: $body-font;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  margin-top: -0.1em;
+  margin-bottom: 18px;
 }
 
-.sec-btn,
-.title-line {
-    margin-bottom: var(--section-title-space);
+.sec-subtitle4 {
+  font-family: $title-font;
+  font-weight: 400;
+  color: $title-color;
+  text-transform: uppercase;
+  font-size: 24px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(#9a563a, 0.22);
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+.sec-subtitle5 {
+  font-size: 18px;
+  font-family: $title-font;
+  font-weight: 400;
+  display: block;
+  line-height: 1;
+  margin-bottom: 30px;
+  
+  .inner-text {
+    color: $white-color;
+    background-color: $theme-color;
+    padding: 5px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+
+.sec-subtitle2 {
+  font-size: 18px;
+}
+
+.sec-title {
+  font-size: 55px;
+  margin-top: -0.25em;
+}
+
+.sec-title2 {
+  font-size: 60px;
+  margin-top: -0.22em;
+}
+
+.sec-title3 {
+  margin-top: -0.22em;
+}
+
+.sec-title4 {
+  font-size: 50px;
+  margin-top: -0.13em;
+  line-height: 1;
+  margin-bottom: 17px;
+
+  .inner-text {
+    font-size: 24px;
+    display: inline-block;
+    color: $theme-color;
+    max-width: 70px;
+    text-align: left;
+  }
+}
+
+.sec-subtitle3 {
+  font-size: 26px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: -0.13em 0 40px 0;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 21px;
+}
+
+.sec-shape {
+  margin: 33px 0 60px 0;
+}
+
+.sec-subtext {
+  background-color: #fde6d8;
+  display: inline-block;
+  padding: 6px 17px 6px 20px;
+  margin-left: 5px;
+}
+
+.sec-line {
+  border-top: 1px solid rgba(#657582, 0.35);
+}
+
+.sec-text {
+  margin: 0 0 20px 0;
+  padding-bottom: 7px;
+}
+
+.sec-text2 {
+  font-size: 20px;
+  font-family: $title-font;
+}
+
+.sec-shape2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -17%;
+  opacity: 0.13;
+
+  img {
+    animation: moving-x 8s linear infinite;
+  }
+}
+
+@include xl {
+  .sec-title4,
+  .sec-title2 {
+    font-size: 48px;
+  }
+  
+  .sec-title {
+    font-size: 40px;
+  }
+
+  .sec-subtitle2,
+  .sec-subtitle {
+    margin-bottom: 25px;
+  }
+
+  .sec-shape {
+    margin: 18px 0 45px 0;
+  }
+
+  .sec-subtitle5 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
 }
 
 @include lg {
-    .sub-title {
-        margin-bottom: 20px;
-    }
-
-    .shadow-title {
-        font-size: 120px;
-        margin-bottom: -82px;
-    }
-
-    .title-area,
-    .sec-title {
-        --section-title-space: 60px;
-
-        &.mb-45 {
-            margin-bottom: 36px;
-        }
-
-        &.mb-50 {
-            margin-bottom: 40px;
-        }
-    }
-
-    .sec-btn,
-    .title-line {
-        --section-title-space: 55px;
-    }
+  .sec-title2 {
+    font-size: 42px;
+  }
 }
+
 
 @include md {
-    .shadow-title {
-        font-size: 100px;
-    }
+  .sec-title4 {
+    font-size: 36px;
+    margin-bottom: 13px;
+  }
+  
+  .sec-title2,
+  .sec-title {
+    font-size: 36px;
+  }
 
-    .title-area,
-    .sec-title {
-        --section-title-space: 50px;
+  .sec-subtitle2,
+  .sec-subtitle {
+    letter-spacing: 0.1em;
+  }
 
-        &.mb-45 {
-            margin-bottom: 35px;
-        }
+  .sec-title4 {
+    .inner-text {
+      font-size: 20px;
+      max-width: 70px;
     }
-
-    .sec-btn,
-    .title-line {
-        --section-title-space: 50px;
-    }
+  }
 }
 
-@include xs {
-    .sub-title {
-        img {
-            max-width: 60px;
-        }
-    }
+
+@include sm {
+  .sec-title4 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .sec-text {
+    font-size: 14px;
+  }
+  
+  .sec-title2,
+  .sec-title {
+    font-size: 28px;
+  }
+
+  .sec-subtitle2,
+  .sec-subtitle {
+    letter-spacing: 0.05em;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .sec-subtitle3 {
+    font-size: 22px;
+    margin: -0.13em 0 30px 0;
+    padding-bottom: 21px;
+  }
+
+  .sec-text2 {
+    font-size: 16px;
+  }
+}
+
+
+@include sm {
+  .title-area {
+    margin-bottom: 40px;
+  }
 }

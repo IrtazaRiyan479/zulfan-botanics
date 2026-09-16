@@ -5,8 +5,13 @@
   top: 0;
   bottom: 0;
   z-index: 999;
-  background-color: $title-color;  
+  background-color: $body-bg;
 
+  .vs-btn {
+    padding: 15px 20px;
+    border-radius: 0;
+    font-size: 14px;
+  }
 }
 
 .preloader-inner {
@@ -16,50 +21,71 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  line-height: 1;
+  line-height: 0;
+
 
   img {
     display: block;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 10px auto;
   }
 }
 
 .loader {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
   display: inline-block;
-  width: 25px;
-  height: 25px;
   position: relative;
-  border-radius: 40% 40% 40% 40% / 40% 40% 40% 40%;
-  color: $theme-color;
-  animation: loaderfill 1s ease-in infinite alternate;
+  border: 3px solid;
+  border-color: $theme-color $theme-color transparent transparent;
+  box-sizing: border-box;
+  animation: rotationloader 1.5s linear infinite;
 
-  &::before,
-  &::after {
+  &::after,
+  &::before {
     content: '';
+    box-sizing: border-box;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 40% 40% 40% 40% / 40% 40% 40% 40%;
-    left: 48px;
+    left: 0;
+    right: 0;
     top: 0;
-    animation: loaderfill 0.9s ease-in infinite alternate;
-    transform: rotate(45deg);
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent $title-color $title-color;
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBackloader 0.7s linear infinite;
+    transform-origin: center center;
   }
-
-  &::after {
-    left: auto;
-    right: 48px;
-    animation-duration: 1.1s;
+  
+  &::before {
+    width: 92px;
+    height: 92px;
+    border-color: $theme-color $theme-color transparent transparent;
+    animation: rotationloader 2s linear infinite;
   }
 }
 
 
-@keyframes loaderfill {
+@keyframes rotationloader {
   0% {
-    box-shadow: 0 0 0 2px inset
+    transform: rotate(0deg);
   }
 
   100% {
-    box-shadow: 0 0 0 10px inset
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBackloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
   }
 }

@@ -1,0 +1,31 @@
+.counter-inner1 {
+  padding: 40px 0;
+}
+
+.counter-media {
+  padding: 13px 40px;
+
+  .sec-title {
+    margin-bottom: 10px;
+  }
+
+  .counter-text {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+}
+
+
+@include lg {
+  .counter-media {
+    padding: 13px 10px;
+  }
+}
+
+@include md {
+  .counter-media {
+    padding: 10px 20px;
+  }
+}

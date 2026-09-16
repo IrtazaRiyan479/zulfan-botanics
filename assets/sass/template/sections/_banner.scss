@@ -1,0 +1,268 @@
+.banner-inner1 {
+  padding: 50px 45px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1.5px 2.598px 16.74px 1.26px rgba(127, 59, 29, 0.09);
+}
+
+
+.banner-style1 {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #faefeb;
+  border-radius: 10px;
+  height: 270px;
+  align-items: center;
+
+  .banner-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: $body-font;
+    font-weight: 700;
+    color: #4d4a49;
+    margin: -0.23em -40px 0 0;
+  }
+
+  .banner-price {
+    font-size: 32px;
+    font-weight: 500;
+    color: $theme-color;
+    display: flex;
+    flex-direction: column-reverse;
+
+    del {
+      font-size: 20px;
+      font-weight: 500;
+      color: #717171;
+      display: block;
+      margin-bottom: 5px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $theme-color;
+    }
+  }
+
+  .banner-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0 45px 30px;
+    align-self: stretch;
+  }
+
+  .banner-img {
+    padding: 20px 30px 10px 0;
+  }
+
+  &.layout2 {
+    background-color: #faebee;
+  }
+
+  &.layout3 {
+    background-color: #faefeb;
+
+    .banner-img {
+      margin-right: -55px;
+      padding-top: 50px;
+    }
+  }
+
+}
+
+.banner-style2 {
+  position: relative;
+  margin-bottom: 30px;
+  
+  .banner-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  .banner-content {
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .banner-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $theme-color;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .banner-title {
+    margin-bottom: 21px;
+  }
+
+  &.layout2 {
+    .banner-content {
+      right: auto;
+      left: 10%;
+    }
+
+    .vs-btn {
+      background-color: $white-color;
+      color: $theme-color;
+
+      &:hover {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.banner-style3 {
+  position: relative;
+
+  .banner-img {
+    img {
+      width: 100%;
+    }
+  }
+  
+  .banner-label {
+    font-size: 18px;
+    color: $title-color;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .banner-title {
+    max-width: 400px;
+    margin-bottom: 40px;
+  }
+
+  .banner-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 30px 60px;
+  }
+}
+
+@include ml {
+  .banner-style1 {
+    .banner-title {
+      font-size: 18px;
+    }
+
+    .banner-price {
+      font-size: 24px;
+
+      del {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+@include lg {
+  .banner-style1 {
+    .banner-img {
+      padding: 8px 20px 15px 0;
+    }
+
+    .banner-title {
+      font-size: 16px;
+    }
+
+    .banner-content {
+      padding: 35px 0 28px 25px;
+    }
+  }
+
+  .banner-inner1 {
+    padding: 30px 30px;
+  }
+
+
+  .banner-style2 {
+    .banner-content {
+      max-width: 250px;
+    }
+  }
+
+  .banner-style3 {
+    .banner-content {
+      padding: 20px 30px;
+    }
+
+    .banner-label {
+      font-size: 16px;
+      display: block;
+    }
+
+    .banner-title {
+      max-width: 260px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .vs-btn {
+      letter-spacing: 0;
+      font-size: 12px;
+      padding: 15px 25px;
+    }
+  }
+
+}
+
+
+@include md {
+  .banner-style2 {
+    .banner-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .banner-label {
+      font-size: 12px;
+    }
+
+    .banner-content {
+      max-width: 180px;
+    }
+
+    .vs-btn {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
+  }
+
+  .banner-style3 {
+    .banner-content {
+      padding: 20px 20px;
+    }
+
+    .banner-label {
+      font-size: 14px;
+    }
+
+    .banner-title {
+      max-width: 240px;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .vs-btn {
+      font-size: 10px;
+      padding: 13px 20px;
+    }
+  }
+}
+
+@include sm {
+  .banner-inner1 {
+    padding: 30px 15px;
+  }
+}

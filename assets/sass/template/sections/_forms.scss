@@ -1,0 +1,588 @@
+.form-style1 {
+  padding-left: 40px;
+
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(#fde6d8, 0.3);
+    padding: 0 20px 0 0;
+    height: 40px;
+    color: $body-color;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: $body-font;
+    margin: 0;
+  }
+
+  button {
+    border: none;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    padding: 10px 23px;
+
+    &:after,
+    &:before {
+      background-color: $white-color;
+    }
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .form-title {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 19px;
+    margin-top: -0.2em;
+  }
+
+  .form-group {
+    display: flex;
+  }
+}
+
+.form-style2 {
+  background-color: $white-color;
+  padding: 55px 50px 55px 50px;
+  box-shadow: 1.5px 2.598px 14.88px 1.12px rgba(18, 27, 36, 0.06);
+
+  .form-title {
+    margin: -0.25em 0 2px 0;
+  }
+
+  .form-label {
+    font-size: 18px;
+    color: $theme-color;
+    margin: 0 0 25px 0;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  input {
+    background-color: #fde6d8;
+    border: none;
+    color: #6f6c6c;
+    font-size: 14px;
+    padding-right: 25px;
+    padding-left: 25px;
+    height: 70px;
+
+    @include inputPlaceholder {
+      text-transform: uppercase;
+    }
+  }
+
+  .vs-btn {
+    margin-top: 27px;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 20px;
+  }
+}
+
+.form-style3 {
+  padding: 1px 15px 0 15px;
+
+  .form-title {
+    color: $white-color;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: -0.24em 0 40px 0;
+  }
+
+  .form-group {
+    display: flex;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &:not(.layout2) .vs-btn {
+
+    &::before,
+    &::after {
+      background-color: $secondary-color;
+    }
+  }
+
+  input {
+    // --body-color: #bebebe;
+    color: $title-color;
+    font-size: 14px;
+    border: 1.5px solid #273036;
+    background-color: #1d2429;
+    transition: all ease 0.4s;
+
+    @include inputPlaceholder {
+      color: #bebebe;
+    }
+
+    &:focus {
+      background-color: $white-color;
+      border-color: $white-color;
+
+      @include inputPlaceholder {
+        color: $title-color;
+      }
+    }
+  }
+
+  &.layout2 {
+    padding: 0;
+    width: 550px;
+    max-width: 100%;
+
+    .form-group {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    input {
+      background-color: $white-color;
+      border-color: $white-color;
+
+      @include inputPlaceholder {
+        color: $title-color;
+      }
+    }
+  }
+}
+
+.form-style4 {
+  text-align: center;
+  background-color: $white-color;
+  padding: 60px 60px;
+
+  .sec-title {
+    margin-bottom: 31px;
+  }
+
+  textarea,
+  input {
+    background-color: #f5e4d9;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    height: 65px;
+    --body-color: #7f7d7d;
+    letter-spacing: 0.08em;
+    padding-left: 67px;
+
+    ~i {
+      left: 30px;
+      right: auto;
+      color: $theme-color;
+      top: 24px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: -12px;
+        top: 50%;
+        width: 2px;
+        height: 12px;
+        background-color: #c7c1be;
+        margin: -6px 0 0 0;
+      }
+    }
+  }
+
+  textarea {
+    padding-left: 30px;
+  }
+
+  .vs-btn {
+    width: 100%;
+  }
+}
+
+.form-style5 {
+  .form-text {
+    font-size: 16px;
+    margin-bottom: 22px;
+    color: $body-color;
+    margin-top: -0.4em;
+    max-width: 320px;
+  }
+
+  input {
+    height: 50px;
+    border: none;
+    --body-color: #a3a2a2;
+    background-color: #273036;
+    margin-bottom: 15px;
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .vs-btn {
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.contact-map {
+  line-height: 0;
+
+  iframe {
+    width: 100%;
+    height: 404px;
+  }
+}
+
+.contact-table {
+  margin: 3px 0 30px 0;
+
+  .tr {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e9e0db;
+    padding: 19px 0;
+  }
+
+  .th {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $title-color;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    margin-right: 10px;
+  }
+
+  .td {
+    letter-spacing: 0.03em;
+  }
+}
+
+.form-style6 {
+  --bs-gutter-x: 15px;
+
+  .vs-btn {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.form-style7 {
+  background-color: $secondary-color;
+  padding: 70px 60px;
+
+  .row {
+    --bs-gutter-x: 20px;
+  }
+
+  textarea,
+  select,
+  input {
+    border: none;
+    padding-right: 25px;
+  }
+
+  textarea {
+    min-height: 130px;
+  }
+
+  .vs-btn {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+  }
+}
+
+.form-style10,
+.form-style8 {
+
+  select,
+  input {
+    height: 70px;
+    border-radius: 0;
+    padding-left: 50px;
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 14px;
+    padding-right: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+
+    i {
+      top: 27px;
+      left: 36px;
+      right: auto;
+      color: $white-color;
+    }
+  }
+
+  .vs-btn {
+    height: 70px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+}
+
+.form-style8 {
+
+  input,
+  select {
+    @include inputPlaceholder {
+      color: $white-color;
+    }
+
+    &,
+    &:focus {
+      background-color: transparent;
+      color: $white-color;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.form-style9 {
+  display: flex;
+  position: relative;
+
+  input {
+    height: 80px;
+    border: none;
+    padding-left: 60px;
+    width: calc(100% - 225px);
+  }
+
+  .fa-envelope {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .vs-btn {
+    width: 225px;
+    background-color: #933d1a;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+
+.form-style10 {
+  margin-bottom: 30px;
+
+  select,
+  input {
+    height: 70px;
+    border-color: #ededed;
+    padding-left: 55px;
+    margin-bottom: 0;
+  }
+
+  .form-group {
+    margin-bottom: var(--bs-gutter-x);
+
+    i {
+      color: $theme-color;
+    }
+  }
+}
+
+.form-style12,
+.form-style11 {
+  .sec-title {
+    font-size: 48px;
+    max-width: 400px;
+    margin-bottom: 28px;
+  }
+
+  .row {
+    --bs-gutter-x: 20px;
+  }
+
+  select,
+  input {
+    height: 55px;
+    border: none;
+  }
+}
+
+.form-style11 {
+  background-color: $secondary-color;
+  padding: 55px 50px;
+}
+
+.form-style12 {
+
+  select,
+  input {
+    background-color: $secondary-color;
+  }
+}
+
+
+@include ml {
+  .form-style2 {
+    padding: 45px 35px 45px 35px;
+  }
+
+  .form-style11,
+  .form-style12 {
+    .sec-title {
+      font-size: 40px;
+      max-width: 390px;
+      margin-bottom: 31px;
+    }
+
+    .sec-subtitle {
+      margin-bottom: 15px;
+    }
+  }
+
+
+  .form-style11 {
+    padding: 43px 40px;
+  }
+}
+
+@include lg {
+  .form-style1 {
+    button {
+      font-size: 12px;
+      letter-spacing: 0;
+      padding: 10px 15px;
+    }
+  }
+
+  .form-style3 {
+    .form-title {
+      letter-spacing: 0;
+      margin: -0.24em 0 30px 0;
+    }
+  }
+
+
+}
+
+@include md {
+
+  .form-style12,
+  .form-style11 {
+    .sec-title {
+      font-size: 36px;
+      max-width: 380px;
+      margin-bottom: 31px;
+    }
+  }
+
+  .form-style4 {
+    padding: 40px 30px;
+  }
+}
+
+@include sm {
+  .form-style2 {
+    padding: 45px 15px 45px 15px;
+
+    input {
+      height: 50px;
+    }
+
+    .vs-btn {
+      margin-top: 0;
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+
+  .form-style1 {
+    padding-left: 0;
+
+    .form-title {
+      text-align: center;
+    }
+  }
+
+
+  .form-style3 {
+    .form-group {
+      display: block;
+    }
+
+    .vs-btn {
+      margin-top: 15px;
+    }
+  }
+
+  .form-style4 {
+    padding: 40px 20px;
+  }
+
+  .form-style7 {
+    padding: 40px 20px;
+  }
+
+  .form-style9 {
+    display: block;
+    text-align: center;
+
+    .fa-envelope {
+      top: 28px;
+      left: 20px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 20px;
+      height: 55px;
+      padding-left: 50px;
+    }
+  }
+
+  .form-style12,
+  .form-style11 {
+
+    .sec-title {
+      font-size: 30px;
+      max-width: 370px;
+      margin-bottom: 26px;
+    }
+  }
+
+  .form-style11 {
+    padding: 42px 20px;
+  }
+
+}
+
+@include xs {
+  .contact-table {
+    .th {
+      font-size: 10px;
+      letter-spacing: 0;
+      margin-right: 5px;
+    }
+
+    .td {
+      letter-spacing: 0;
+      font-size: 12px;
+    }
+  }
+}

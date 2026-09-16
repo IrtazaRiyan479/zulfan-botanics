@@ -1,0 +1,89 @@
+.accordion-style1 {
+  .accordion-item {
+    margin: 0 0 20px 0;
+    padding: 0 35px 6.5px 35px;
+    background-color: $white-color;
+    border: 1px solid $border-color;
+    box-shadow: 7.5px 12.99px 40px 0px rgba(#9a563a, 0.05);
+    border-radius: 0;
+    transition: all ease 0.4s;
+
+    &.active,
+    &:hover {
+      border-color: $theme-color;
+    }
+  }
+
+  .accordion-button {
+    background-color: transparent;
+    border: none;
+    padding: 24.5px 0 18px 0;
+    font-size: 20px;
+    font-family: $title-font;
+    color: $title-color;
+    text-align: left;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      
+      content: '\f063';
+      font-family: $icon-font;
+      font-weight: 300;
+      color: $title-color;
+      border: none;
+      width: auto;
+      height: auto;
+      background-image: none;
+      transform: rotate(-90deg);
+      transition: all ease 0.4s;
+      margin-left: 10px;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:not(.collapsed) {
+      &:after {
+        transform: rotate(0);
+      }
+    }
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .accordion-body {
+    padding: 20px 0 20px 0;
+    border-top: 1px solid $border-color;
+
+    p {
+      font-size: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .accordion-collapse {
+    border: none;
+  }
+}
+
+
+@include ml {
+  .accordion-style1 {
+    .accordion-item {
+      margin: 0 0 20px 0;
+      padding: 0 20px 6.5px 20px;
+    }
+
+    .accordion-button {
+      padding: 18px 0 14px 0;
+      font-size: 18px;
+    }
+  }
+}

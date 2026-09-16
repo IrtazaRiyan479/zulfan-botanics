@@ -1,90 +1,120 @@
 .breadcumb-menu {
-    max-width: 100%;
-    padding: 0;
-    margin: 28px 0 -0.5em 0; 
-    list-style-type: none;
+  max-width: 100%;
+  padding: 0;
+  margin: 14px 0 -0.55em 0;
+  list-style-type: none;
+  position: relative;
+
+  li {
+    display: inline-block;
+    list-style: none;
     position: relative;
-    li {
-        display: inline-block;
-        margin-right: 3px;
-        padding-right: 5px;
-        list-style: none;
-        position: relative;
 
-        &:after {
-            content: "\f30b"; 
-            position: relative;
-            margin-left: 10px;
-            font-weight: 500; 
-            font-size: 20px;
-            color: $body-color;
-            font-family: $icon-font;
-        }
-
-        &:last-child {
-            padding-right: 0;
-            margin-right: 0;
-            color: $body-color;
- 
-            &:after {
-                display: none;
-            }
-        }
+    &:after {
+      content: '\f101';
+      font-family: $icon-font;
+      font-weight: 400;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-left: 10px;
+      margin-right: 5px;
     }
 
-    li,
-    a,
-    span {
-        white-space: normal;
-        color: inherit;
-        word-break: break-word; 
-        font-weight: 400;
-        font-size: 20px;
-        color: $body-color;
+    &:last-child {
+      color: $title-color;
+
+      &:after {
+        display: none;
+      }
     }
+  }
+
+  li,
+  a {
+    word-break: break-word;
+    white-space: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: $body-color;
+    font-family: $body-font;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    color: $theme-color;
+  }
 }
 
 .breadcumb-title {
-    color: $title-color; 
-    margin: -0.20em 0 -0.18em 0;
-	line-height: 1.1;
-    font-weight: 600;
+  color: $title-color;
+  margin: -0.22em 0 -0.22em 0;
+  font-size: 60px;
+  text-transform: uppercase;
+
+  .inner-text {
+    color: $theme-color;
+  }
+}
+
+.breadcumb-content {
+  padding: 200px 0 200px 0;
 }
 
 .breadcumb-wrapper {
-    background-color: #F7F7F7;
-    padding: 153px 0; 
-    overflow: hidden;
+  padding-bottom: 0.1px;
+  overflow: hidden;
+  position: relative;
+  background-color: $smoke-color;
+  background-size: 100% auto;
+  background-position: top center;
+
+  @include hd {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  @media (max-width: 1850px) {
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@include ml {
+  .breadcumb-content {
+    padding: 130px 0 130px 0;
+  }
 }
 
 @include lg {
-    .breadcumb-wrapper {
-        padding: 130px 0;
-    }
-	.breadcumb-menu {
-        margin: 25px 0 -0.5em 0;
-        li,
-        a,
-        span {
-            font-size: 16px;
-        }
-    }
+  .breadcumb-title {
+    font-size: 46px;
+  }
+
 }
 
+
 @include md {
-    .breadcumb-wrapper {
-        padding: 120px 0;
-    }
+  .breadcumb-title {
+    font-size: 36px;
+  }
 }
 
 @include sm {
-    .breadcumb-wrapper {
-        padding: 100px 0;
+  .breadcumb-menu {
+    li,
+    a {
+      font-size: 12px;
+      letter-spacing: 0;
     }
-}
+  }
 
-@include xs {
-	.breadcumb-title {
-		font-size: 34px;
-	}
+  .breadcumb-content {
+    padding: 80px 0 80px 0;
+  }
+
+  .breadcumb-wrapper {
+    background-position: left center;
+  }
 }

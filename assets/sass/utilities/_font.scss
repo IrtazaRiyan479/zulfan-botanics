@@ -4,10 +4,6 @@
   }
 }
 
-.fw-extralight {
-  font-weight: 100;
-}
-
 .fw-light {
   font-weight: 300;
 }
@@ -38,4 +34,34 @@
 
 .fs-xs {
   font-size: 14px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.fs-26 {
+  font-size: 26px;
+}
+
+@include sm {
+  .fs-26 {
+    font-size: 22px;
+  }
+
+  .fs-22 {
+    font-size: 20px;
+  }
+
+  .fs-20 {
+    font-size: 18px;
+  }
+
+  .fs-md {
+    font-size: 16px;
+  }
 }

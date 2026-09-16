@@ -1,29 +1,29 @@
 /*
-Template Name: Rasm
-Template URL: https://themeholy.com/Rasm
-Description: Rasm - Nail Salon & Spa Beauty Care HTML Template
-Author: Themeholy
-Author URI: https://themeforest.net/user/themeholy
+Template Name: Wellnez
+Template URL: https://html.vecurosoft.com/wellnez
+Description: Wellnez - Spa Beauty Salon HTML Template
+Author: Vecuro
+Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
 */
-/*================================= 
+/*=================================
     CSS Index Here
-==================================*/ 
+==================================*/
 /*
-
 01. Theme Base
     1.1. Mixin
     1.2. Function
     1.3. Variable
     1.4. Typography
     1.5. Extend
-    1.7. Wordpress Default  
+    1.7. Wordpress Default
 02. Reset
     2.1. Container
     2.2. Grid
     2.3. Input
     2.4. Slick Slider
     2.5. Mobile Menu
+    2.6. Date & Time Picker
 03. Utilities
     3.1. Preloader
     3.2. Buttons
@@ -34,8 +34,7 @@ Version: 1.0.0
     3.8. Text Color
     3.9. Overlay
     3.10. Animation
-    
-04. Template Style
+04. Template Style v1
     4.1. Widget
     4.2. Header
     4.3. Footer
@@ -45,36 +44,32 @@ Version: 1.0.0
     4.7. Comments
     4.8. Hero Area
     4.9. Error    
-    4.00. Popup Search
-    4.00. Popup Side Menu
-    4.00. Wocommerce
-    4.00. Products
-    4.00. Cart
-    4.00. Checkout
-    4.00. Wishlist
-    4.00. Contact
-    4.00. About
-    4.00. Team
-    4.00. Testimonial
-    4.00. Counter
-    4.00. Blog
-    4.00. Brand
-    4.00. Simple Sections
-    4.00. Why
-    4.00. Tab Menu
-    4.00. Faq
-    4.00. CTA
-    4.00. Service
-    4.00. Pricing
-    4.00. Couple
-    4.00. History
-    4.00. Gallery
-    4.00. Event
-    4.00. RSVP
-    4.00. Invitation
-
+    4.10. About
+    4.11. Forms
+    4.12. Price Plan
+    4.13. Testimonial
+    4.14. Team
+    4.15. Gallery
+    4.16. Features
+    4.17. Service
+    4.18. Banners
+    4.19. Simple Sections
+    4.20. Popup Side Menu
+    4.21. Wocommerce
+    4.22. Products
+    4.23. Cart
+    4.24. Checkout
+    4.25. Wishlist
+    4.26. Accordion
 05. Spacing
-
+06. Template Style v2 / New
+    06.1. New Feature
+    06.2. Team
+    06.3. Gallery
+    06.4. Price
+    06.5. Blog
+    06.6. Counter
+    06.7. Testimonial
 */
 /*=================================
     CSS Index End
@@ -119,11 +114,10 @@ Version: 1.0.0
 @import 'reset/slick-slider';
 
 /*------------------- 2.5. Mobile Menu -------------------*/
-@import 'reset/thmenu'; 
+@import 'reset/vsmenu';
 
-/*------------------- 2.6. Mobile Menu -------------------*/
-@import 'reset/nice-select';
-
+/*------------------- 2.6. Date & Time Picker -------------------*/
+@import 'reset/datepicker';
 
 /*=================================
     03. Utilities
@@ -153,11 +147,11 @@ Version: 1.0.0
 @import 'utilities/overlay';
 
 /*------------------- 3.10. Animation -------------------*/
-@import 'utilities/animation'; 
+@import 'utilities/animation';
 
 
 /*=================================
-    04. Template Style
+    04. Template Style v1
 ==================================*/
 /*------------------- 4.1. Widget  -------------------*/
 @import 'template/widgets/widget-default-list';
@@ -189,106 +183,90 @@ Version: 1.0.0
 /*------------------- 4.9. Error  -------------------*/
 @import 'template/sections/error';
 
-/*------------------- 4.00. Popup Search  -------------------*/
-@import 'template/sections/popupsearch-v1';
-
-/*------------------- 4.00. Popup Side Menu  -------------------*/
-@import 'template/sections/sidemenu-v1';
-
-/*------------------- 4.00. Wocommerce  -------------------*/
-@import 'template/sections/woocommerce';
-
-/*------------------- 4.00. Products  -------------------*/
-@import 'template/sections/products';
-
-/*------------------- 4.00. Cart  -------------------*/
-@import 'template/sections/cart';
-
-/*------------------- 4.00. Checkout  -------------------*/
-@import 'template/sections/checkout';
-
-/*------------------- 4.00. Wishlist  -------------------*/
-@import 'template/sections/wishlist';
-
-/*------------------- 4.00. Contact  -------------------*/
-@import 'template/sections/contact';
-
-/*------------------- 4.00. About  -------------------*/
+/*------------------- 4.10. About  -------------------*/
 @import 'template/sections/about';
 
-/*------------------- 4.00. Team  -------------------*/
-@import 'template/sections/team';
+/*------------------- 4.11. Forms  -------------------*/
+@import 'template/sections/forms';
 
-/*------------------- 4.00. Testimonial  -------------------*/
+/*------------------- 4.12. Price Plan  -------------------*/
+@import 'template/sections/price';
+
+/*------------------- 4.13. Testimonial  -------------------*/
 @import 'template/sections/testimonial';
 
-/*------------------- 4.00. Counter  -------------------*/
-@import 'template/sections/counter';
+/*------------------- 4.14. Team  -------------------*/
+@import 'template/sections/team';
 
-/*------------------- 4.00. Blog  -------------------*/
-@import 'template/sections/blog-extra';
-
-/*------------------- 4.00. Brand  -------------------*/
-@import 'template/sections/brand';
-
-/*------------------- 4.00. Simple Sections  -------------------*/
-@import 'template/sections/simple-sections';
-
-/*------------------- 4.00. Why -------------------*/
-@import 'template/sections/why';
-
-/*------------------- 4.00. Tab Menu -------------------*/
-@import 'template/sections/tabmenu';
-
-/*------------------- 4.00. Faq -------------------*/
-@import 'template/sections/faq';
-
-/*------------------- 4.00. CTA -------------------*/
-@import 'template/sections/cta';
-
-/*------------------- 4.00. Service -------------------*/
-@import 'template/sections/service';
-
-/*------------------- 4.00. Pricing -------------------*/
-@import 'template/sections/pricing';
-
-/*------------------- 4.00. Booking -------------------*/ 
-@import 'template/sections/booking';
-
-/*------------------- 4.00. History -------------------*/
-@import 'template/sections/history';
-
-/*------------------- 4.00. Gallery -------------------*/
+/*------------------- 4.15. Gallery  -------------------*/
 @import 'template/sections/gallery';
 
-/*------------------- 4.00. Event -------------------*/
-@import 'template/sections/event';
+/*------------------- 4.16. Features  -------------------*/
+@import 'template/sections/features';
 
-/*------------------- 4.00. RSVP -------------------*/
-@import 'template/sections/rsvp';
+/*------------------- 4.17. Service  -------------------*/
+@import 'template/sections/service';
 
-/*------------------- 4.00. Invitation -------------------*/
-@import 'template/sections/invitation';
+/*------------------- 4.18. Banners  -------------------*/
+@import 'template/sections/banner';
 
-/*------------------- 4.00. Process -------------------*/
-@import 'template/sections/process';
+/*------------------- 4.19. Simple Sections  -------------------*/
+@import 'template/sections/simple-sections';
 
-/*------------------- 4.00. project -------------------*/
-@import 'template/sections/project';
+/*------------------- 4.20. Popup Side Menu  -------------------*/
+@import 'template/sections/sidemenu-v1';
+
+/*------------------- 4.21. Popup Side Menu  -------------------*/
+@import 'template/sections/popupsearch-v1';
+
+/*------------------- 4.21. Wocommerce  -------------------*/
+@import 'template/sections/woocommerce';
+
+/*------------------- 4.22. Products  -------------------*/
+@import 'template/sections/products';
+
+/*------------------- 4.23. Cart  -------------------*/
+// @import 'template/sections/cart';
+
+/*------------------- 4.24. Checkout  -------------------*/
+// @import 'template/sections/checkout';
+
+/*------------------- 4.25. Wishlist  -------------------*/
+// @import 'template/sections/wishlist';
+
+/*------------------- 4.26. Accordion  -------------------*/
+@import 'template/sections/accordion';
 
 
 /*=================================
     05. Spacing
-==================================*/ 
-@import 'spacing/spacing'; 
- 
+==================================*/
+@import 'spacing/spacing';
 
 
 
+/*=================================
+    06. Template Style v2 / New
+==================================*/
 
+/*------------------- 06.1. New Feature -------------------*/
+@import 'new/feature-v1';
 
+/*------------------- 06.2. Team -------------------*/
+@import 'new/team-v1';
 
+/*------------------- 06.3. Gallery -------------------*/
+@import 'new/gallery-v1';
+@import 'new/gallery-v2';
 
+/*------------------- 06.4. Price -------------------*/
+@import 'new/price-v2';
 
+/*------------------- 06.5. Blog -------------------*/
+@import 'new/blog-v1';
 
+/*------------------- 06.6. Counter -------------------*/
+@import 'new/counter-v1';
 
+/*------------------- 06.7. Testimonial -------------------*/
+@import 'new/testimonial-v1';

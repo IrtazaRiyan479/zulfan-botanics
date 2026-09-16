@@ -1,322 +1,335 @@
-.th-comment-form {
-    margin-top: var(--blog-space-y, 40px);
-    margin-bottom: 30px;
-    padding: var(--blog-space-y, 40px) var(--blog-space-x, 40px);
-    position: relative;
-
-    .row {
-        --bs-gutter-x: 30px;
-        margin-top: 30px;
-
-        .form-group {
-            margin-top: 0;
-        }
-    }
-
-    .blog-inner-title {
-        margin-bottom: 0px;
-    }
-
-    .form-title {
-        margin-top: -0.35em;
-
-        a#cancel-comment-reply-link {
-            font-size: 0.7em;
-            text-decoration: underline;
-        }
-    }
-
-    .form-text {
-        margin-bottom: 25px;
-    }
-
-    .form-group {
-        >i {
-            color: $theme-color;
-        }
-    }
+.vs-comment-form {
+  margin: 80px 0 30px 0;
 }
 
-.blog-comment-area {
+.comment-respond {
+  position: relative;
+
+  .form-title {
+    a#cancel-comment-reply-link {
+      font-size: .7em;
+      text-decoration: underline;
+    }
+  }
+
+
+  .custom-checkbox.notice {
     margin-bottom: 25px;
-}
+  }
 
-.th-comment-form,
-.th-comments-wrap {
-    padding: 40px;
-    box-shadow: 0px 6px 30px rgba(7, 36, 95, 0.07);
-    border-radius: 0;
-
-    &:has(#wp-temp-form-div) {
-        padding: 0;
-        box-shadow: none;
-        display: none;
+  .row {
+    @media (min-width: $lg) {
+      --bs-gutter-x: 30px;
     }
-}
+  }
 
-.th-comments-wrap {
-    --border-color: #E2E8FA;
-    margin-top: var(--blog-space-y, 40px);
-    margin-bottom: 30px;
+  .form-control {
+    font-size: 14px;
+    font-weight: 500;
+    color: #888888;
+    border: 1px solid $body-color;
+    background-color: transparent;
+    height: 60px;
+    padding-left: 25px;
+    
 
-    .description p:last-child {
-        margin-bottom: -0.5em;
+    @include inputPlaceholder {
+      color: #888888;
     }
+  }
 
-    .comment-respond {
-        margin: 30px 0;
-    }
-
-    pre {
-        background: #ededed;
-        color: #666;
-        font-size: 14px;
-        margin: 20px 0;
-        overflow: auto;
-        padding: 20px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
+  .form-group {
+    i {
+      color: $theme-color;
     }
 
-    li {
-        margin: 0;
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    .th-post-comment {
-        padding: 0;
-        position: relative;
-        display: flex;
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        position: relative;
-        padding: 30px;
-        background-color: $smoke-color;
-        border-bottom: 0;
-
-        ol,
-        ul,
-        dl {
-            margin-bottom: 1rem;
-        }
-
-        ol ol,
-        ol ul,
-        ul ol,
-        ul ul {
-            margin-bottom: 0;
-        }
-    }
-
-    ul.comment-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        margin-bottom: -30px;
-
-        ul,
-        ol {
-
-            ul,
-            ol {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    .comment-avater {
-        @include equal-size(80px);
-        margin-right: 20px;
-        overflow: hidden;
+  input[type=checkbox] {
+    &~label {
+      color: $body-color;
+      
+      &:before {
+        background-color: $body-bg;
+        border: 1px solid $border-color;
         border-radius: 0;
+        top: 4px;
+      }
+    }
 
-        img {
-            width: 100%;
+    &:checked {
+      ~label {
+        &:before {
+          background-color: $theme-color;
+          border-color: transparent;
         }
+      }
     }
+  }
 
-    .comment-content {
-        flex: 1;
-        margin-top: -6px;
-        position: relative;
+  .blog-inner-title {
+    border: none;
+    margin-bottom: 12px;
+    padding-bottom: 0;
+  }
+
+  .form-text {
+    margin-bottom: 37px;
+    font-size: 16px;
+    color: $body-color;
+  }
+}
+
+.inner-pane {
+  .vs-comment-form {
+    margin: 60px 0 30px 0;
+  }
+
+  .comment-respond {
+    .form-control {
+      transition: all ease 0.4s;
+      
+      &:focus {
+        background-color: $white-color;
+        color: $title-color;
+        border-color: $white-color;
+      }
     }
+    
+    .blog-inner-title {
+      font-size: 22px;
+      text-transform: uppercase;
+      position: relative;
+      margin-bottom: 25px;
+      padding-bottom: 17px;
 
-    .commented-on {
-        font-size: 14px;
-        display: inline-block;
-        margin-bottom: 2px;
-        font-weight: 400;
-        font-style: italic;
-        color: $body-color;
-
-        i {
-            color: $theme-color;
-            margin-right: 7px;
-            font-size: 0.9rem;
-        }
-    }
-
-    .name {
-        margin-bottom: 8px;
-        font-size: 24px;
-    }
-
-    .comment-top {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .text {
-        margin-bottom: -0.46em;
-    }
-
-    .children {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        margin-left: 80px;
-    }
-
-    .reply_and_edit {
-        color: var(--theme-color);
+      &:before {
+        content: '';
         position: absolute;
-        top: 0px;
-        right: 30px;
-        margin-top: 12px;
-        margin-bottom: -0.46em;
-
-        @include xs {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: -0.2em; 
-        }
-
-        a {
-            margin-right: 15px;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 3px;
+        background-color: $theme-color;
+      }
     }
-
-    .reply-btn {
-        font-weight: 500;
-        font-size: 16px;
-        color: $theme-color;
-        display: inline-block;
-        text-transform: uppercase;
-
-        i {
-            color: $theme-color;
-            margin-right: 4px;
-        }
-
-        &:hover {
-            color: $theme-color;
-        }
-    }
-
-    .star-rating {
-        font-size: 12px;
-        margin-bottom: 10px;
-        position: absolute;
-        top: 5px;
-        right: 0;
-        width: 80px;
-    }
+  }
 }
 
-ul.comment-list {
-    .th-comment-item:last-child {
-        >.th-post-comment {
-            border-bottom: none;
-        }
-    }
 
-    .children .th-comment-item {
-        >.th-post-comment {
-            padding-bottom: 30px;
-        }
-    }
+.vs-comments-wrap {
+  margin: 80px 0 30px 0;
 
-    &:has(> .th-comment-item ~ .th-comment-item) {
-        &:first-child {
-            >.th-post-comment {
-                padding-bottom: 30px;
-            }
-        }
-    }
-}
-
-.th-comments-wrap.th-comment-form {
-    margin: 0;
-}
-
-.comment-respond .must-log-in {
+  .description p:last-child {
     margin-bottom: 0;
-    margin-top: 8px;
-}
+  }
 
-@include ml {
+  .comment-respond {
+    margin: 30px 0;
+  }
 
-    .th-comment-form,
-    .th-comments-wrap {
-        padding: 30px;
+  pre {
+    background: #ededed;
+    color: #666;
+    font-size: 14px;
+    margin: 20px 0;
+    overflow: auto;
+    padding: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  blockquote {
+    background-color: #eaf8f9
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .vs-post-comment {
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid $border-color;
+    margin: 30px 0 30px 0;
+    padding: 0 0 28px 0;
+  }
+
+  ul.comment-list {
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0;
+
+    ul,
+    ol {
+
+      ul,
+      ol {
+        margin-bottom: 0;
+      }
     }
+  }
+
+  .comment-avater {
+    width: 115px;
+    height: 115px;
+    margin-right: 25px;
+    background-color: $smoke-color;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .comment-content {
+    flex: 1;
+    align-self: center;
+  }
+
+  .commented-on {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: $body-color;
+    display: inline-block;
+    text-decoration: underline;
+    position: relative;
+    top: -2px;
+
+    i {
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .name {
+    margin: -0.25em 10px 2px 0;
+    font-size: 22px;
+    display: inline-block;
+  }
+
+  .comment-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .children {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-left: 40px;
+  }
+
+  .reply_and_edit {
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .replay-btn {
+    display: inline-block;
+    text-transform: uppercase;
+    color: $body-color;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+
+    i {
+      margin-right: 8px;
+      color: $theme-color;
+    }
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .star-rating {
+    font-size: 12px;
+    width: 80px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    &:before {
+      color: $yellow-color;
+    }
+
+    span {
+      &:before {
+        color: $yellow-color;
+      }
+    }
+  }
 }
+
+.woocommerce-Reviews {
+  .vs-comments-wrap {
+    padding: 8px 0 0 0;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  .vs-post-comment {
+    padding-bottom: 4px;
+  }
+
+  .woocommerce-Reviews-title {
+    margin-bottom: 40px;
+  }
+
+  .vs-comment-item {
+    &:first-child {
+      .vs-post-comment {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+
+.vs-comments-wrap.vs-comment-form {
+  margin: 0;
+}
+
 
 @include lg {
-    .th-comments-wrap {
-        .children {
-            margin-left: 40px;
-        }
-    }
+  .vs-comments-wrap {
+    margin: 60px 0 30px 0;
+  }
+
+  .vs-comment-form {
+    margin: 60px 0 30px 0;
+  }
 }
 
 @include md {
-
-    .th-comment-form,
-    .th-comments-wrap {
-        padding: 30px;
-    }
-}
-
-@include sm {
-
-    .th-comments-wrap {
-        .th-post-comment {
-            display: block;
-        }
-
-        .star-rating {
-            position: relative;
-            top: 0;
-            right: 0;
-        }
-
-        .comment-top {
-            display: block;
-        }
-
-        .comment-avater {
-            margin-right: 0;
-            margin-bottom: 25px;
-        }
-
-        .children {
-            margin-left: 40px;
-        }
+  .vs-comments-wrap {
+    .vs-post-comment {
+      display: block;
     }
 
-    .th-comments-wrap {
-        .children {
-            margin-left: 30px;
-        }
+    .comment-avater {
+      margin-right: 0;
+      margin-bottom: 15px;
     }
-}
 
-@include sm {
-    .th-comment-form {
-        --blog-space-x: 20px;
+    .children {
+      margin-left: 25px;
     }
+  }
+
+  .comment-respond {
+    .form-text {
+      margin-bottom: 27px;
+      font-size: 16px;
+    }
+
+    .blog-inner-title {
+      margin-bottom: 5px;
+    }
+  }
 }

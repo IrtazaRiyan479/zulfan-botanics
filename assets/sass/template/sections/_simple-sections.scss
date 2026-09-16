@@ -1,309 +1,193 @@
-.checklist {
-    &.style1 {
-        border-right: 2px solid $gray-color;
-
-        @include md {
-            border-right: 2px solid transparent;
-            margin-bottom: 30px;
-        }
-    }
-
-    &.style3 {
-
-        ul {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0 20px;  
-
-            @include xl {
-                gap: 0 15px; 
-            }  
-
-            @include xs {
-                display: block;
-            }
-
-
-            li {
-                margin-bottom: 0;
-
-                &:not(:last-child) {
-                    margin-bottom: 10px;
-                }
-            }
-        }
-    }
-
-    &.style4 {
-        ul {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-
-            @include lg {
-                display: block;  
-            }
-        }
-    }
-
-    ul {
-        padding-left: 0;
-        list-style: none;
-        text-align: left;
-        margin-bottom: 0;
-    }
-
-    li {
-        color: $title-color;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        >i {
-            font-size: 16px;
-            color: $theme-color;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 10px;
-        }
-    }
-
-    &.style2 {
-        li {
-            &:before {
-                content: "\f00c";
-            }
-        }
-    }
-
-    &.mb-40 {
-        @include lg {
-            margin-bottom: 32px;
-        }
-    }
-
-    &.mb-45 {
-        @include lg {
-            margin-bottom: 35px;
-        }
-    }
-}
-
-.bg-img {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
+.category-style1 {
+  padding: 30px 20px 35px 20px;
+  background-color: $white-color;
+  text-align: center;
+  box-shadow: 1.5px 2.598px 14.88px 1.12px rgba(54, 72, 89, 0.1);
+  outline: 1px solid rgba(#9a563a, 0.25);
+  outline-offset: -9px;
+  transition: all ease 0.4s;
+  
+  .category-icon {
+    margin-bottom: 23px;
 
     img {
-        width: 100%;
-        height: 100%;
+      transition: all ease 0.4s;
+      filter: none;
     }
-}
+  }
 
-.th-video {
-    position: relative;
-    border-radius: 5px;
-
-    img {
-        border-radius: inherit;
-    }
-
-    .play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        >i {
-            background-color: $theme-color;
-            color: $white-color;
-        }
-    }
-}
-
-.icon-box {
-    display: inline-flex;
-    gap: 10px;
-
-    &.style2 {
-        .slick-arrow {
-            background-color: $title-color;
-            border: 1px solid $title-color;
-            color: $white-color;
-
-            &:hover {
-                background-color: $theme-color;
-                border-color: $theme-color;
-                color: $white-color;
-            }
-        }
-
-        @include md {
-            margin-bottom: 30px;
-        }
-    }
-
-    &.style3 {
-        @include md {
-            margin-bottom: 30px;
-        }
-
-        .slick-arrow {
-            background-color: transparent;
-            color: $theme-color;
-            border: 1px solid $theme-color;
-
-            &:hover {
-                background-color: $theme-color;
-                color: $white-color;
-                border-color: $theme-color;
-            }
-        }
-    }
-
-    &.style4 {
-        @include md {
-            margin-bottom: 30px;
-        }
-    }
-
-}
-
-.btn-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px 30px;
-}
-
-.video-btn {
-    display: flex;
-    align-items: center;
-    color: $body-color;
+  .category-name {
+    font-size: 14px;
     text-transform: uppercase;
-    line-height: 1.6;
+    font-family: $body-font;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin: 0;
 
-    .play-btn {
-        --icon-size: 50px;
-        margin-right: 15px;
+    a {
+      transition: all ease 0.4s;
+    }
+  }
 
-        >i {
-            background-color: $theme-color;
-            color: $white-color;
-            padding-right: 0.1em;
-        }
+  &:hover {
+    background-color: $theme-color;
+    outline-color: $white-color;
 
-        &:before {
-            background-color: $theme-color;
-        }
+    .category-icon {
+      img {
+        filter: brightness(0) invert(1);
+      }
     }
 
-    .small-text {
-        font-size: 10px;
+    .category-name a {
+      color: $white-color;
+
+      &:hover {
         text-decoration: underline;
-        display: block;
+      }
     }
 
-    .big-text {
-        font-size: 14px;
-        font-weight: 500;
-    }
+  }
 }
 
-@include lg {
-    p {
-        &.mb-40 {
-            margin-bottom: 35px;
-        }
 
-        &.mb-45 {
-            margin-bottom: 38px;
-        }
-    }
+.info-box {
+  padding: 50px 60px;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &:before {
+    z-index: -1;
+  }
+  
+  .sec-title {
+    color: $white-color;
+    margin-bottom: 40px;
+  }
+
+  .info-title {
+    font-size: 16px;
+    color: $white-color;
+    font-family: $body-font;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 15px 0;
+  }
+
+  .info-text {
+    color: #e4e1e1;
+    line-height: 28px;
+    margin: 0;
+  }
+
+
+  .info-item {
+    margin: 0 0 30px 0;
+  }
+
+  .vs-btn {
+    // background-color: $white-color;
+    // color: $theme-color;
+    // height: 60px;
+    // line-height: 60px;
+    // padding-top: 0;
+    // padding-bottom: 0;
+    margin: 20px 0 0 0;
+  }
 }
 
-.global-img {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
+.brand-inner1 {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 80px 0;
+}
 
+.schedule-box1 {
+  position: relative;
+
+  .schedule-content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    text-align: center;
+  }
+
+  .schedule-label {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .schedule-title {
+    margin-bottom: 30px;
+  }
+
+  .schedule-time {
+    color: $title-color;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .schedule-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &.style2 {
     &:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 99px;
-        z-index: 1;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s;
+      content: '';
+      position: absolute;
+      border: 5px solid $theme-color;
+      top: 20px;
+      right: 20px;
+      bottom: -20px;
+      left: -20px;
+    }
+  }
+}
+
+@include md {
+  .info-box {
+    padding: 40px 30px;
+  }
+
+  .schedule-box1 {
+    &.style2 {
+      margin-left: 20px;
+    }
+  }
+
+}
+
+@include sm {
+  .info-box {
+    .sec-title {
+      margin-bottom: 20px;
     }
 
-    &:hover {
-        &:before {
-            left: 0;
-            right: 0;
-            opacity: 0;
-            transition: all 900ms linear;
-        }
-
-        &:after {
-            top: 0;
-            bottom: 0;
-            opacity: 0;
-            transition: all 900ms linear;
-        }
+    .info-item {
+      margin: 0 0 20px 0;
     }
 
-    &:after,
-    &:before {
-        content: '';
-        position: absolute;
-        pointer-events: none;
-        opacity: 1;
-        z-index: 3;
+    .vs-btn {
+      margin: 0px 0 0 0;
     }
+  }
 
-    &:before {
-        top: 0;
-        right: 51%;
-        bottom: 0;
-        left: 50%;
-        background: rgba(255, 255, 255, 0.2);
-
-    }
-
-    &:after {
-        top: 50%;
-        right: 0;
-        bottom: 50%;
-        left: 0;
-        background: rgba(255, 255, 255, 0.3);
-    }
-
-    .blog-date {
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        background-color: $theme-color;
-        color: $white-color;
-        font-weight: 500;
-        text-align: center;
-        height: 70px;
-        width: 70px;
-        border: 4px solid $white-color;
-        text-transform: uppercase;
-        padding: 6px;
-
-        &::first-line {
-            display: block;
-            font-size: 24px;
-            font-weight: 700;
-        }
-    }
 }
