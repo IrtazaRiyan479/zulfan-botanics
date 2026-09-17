@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Wellnez - Spa Beauty & Wellness Salon HTML5 Template - Portfolio</title>
+    <title>Wellnez - Spa Beauty & Wellness Salon HTML5 Template - Checkout</title>
     <meta name="author" content="Vecuro">
     <meta name="description" content="Wellnez - Spa Beauty & Wellness Salon HTML5 Template">
     <meta name="keywords" content="beauty, beauty salon, beauty shop, beauty spa, cosmetics, hairdresser, health, lifestyle, massage, salon, spa, spa booking, wellness, wellness template, yoga">
@@ -120,6 +120,8 @@
                         <ul class="sub-menu">
                             <li><a href="shop.html">Shop</a></li>
                             <li><a href="shop-details.html">Shop Details</a></li>
+                            <li><a href="cart.html">Shopping Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="gallery.html">Portfolio</a></li>
                             <li><a href="gallery-details.html">Portfolio Details</a></li>
                             <li><a href="appointment.html">Appointment</a></li>
@@ -383,6 +385,8 @@
                                                 <ul>
                                                     <li><a href="shop.html">Shop</a></li>
                                                     <li><a href="shop-details.html">Shop Details</a></li>
+                                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
                                                     <li><a href="contact.html">Contact Us</a></li>
                                                     <li><a href="error.html">Error Page</a></li>
                                                 </ul>
@@ -398,6 +402,7 @@
                         <div class="col-auto">
                             <div class="header-icons">
                                 <button class="searchBoxTggler"><i class="far fa-search"></i></button>
+                                <a href="cart.html" title="Shopping Cart"><i class="far fa-shopping-bag"></i></a>
                                 <a href="contact.html" class="vs-btn style2 d-none d-xl-inline-block">Book</a>
                                 <button class="bar-btn sideMenuToggler d-none d-xl-inline-block">
                                     <span class="bar"></span>
@@ -414,164 +419,212 @@
     </header><!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/breadcumb/breadcumb-bg-3.jpg">
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/breadcumb/breadcumb-bg-4.jpg">
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Our <span class="inner-text">Portfolio</span></h1>
+                <h1 class="breadcumb-title">Secure <span class="inner-text">Checkout</span></h1>
                 <div class="breadcumb-menu-wrap">
                     <ul class="breadcumb-menu">
                         <li><a href="index.html">Home</a></li>
-                        <li>Our <span class="inner-text">Portfolio</span></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li>Secure <span class="inner-text">Checkout</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div><!--==============================
-    Gallery Area
+    Checkout Area
     ==============================-->
-    <section class=" space">
+    <section class="vs-checkout-wrapper space-top space-bottom" data-bg-src="assets/img/bg/body-bg-1.jpg">
         <div class="container">
-            <div class="row gy-gx filter-active">
-
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-1.jpg" alt="Gallery Image" class="w-100">
+            <p class="woocommerce-info woocommerce-form-login-toggle">Returning customer? <a href="#">Click here to login</a></p>
+            <form action="#" class="woocommerce-form woocommerce-form-login" method="post" style="display: none;">
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <input type="text" class="form-control" placeholder="Username or email *">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <input type="password" class="form-control" placeholder="Password *">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <button type="submit" class="vs-btn">Login</button>
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="checkbox" id="rememberme" name="rememberme" value="forever">
+                        <label for="rememberme">Remember me</label>
+                        <a class="ms-3" href="#">Lost your password?</a>
+                    </div>
+                </div>
+            </form>
+            <p class="woocommerce-info woocommerce-form-coupon-toggle">Have a coupon? <a href="#">Click here to enter your code</a></p>
+            <form action="#" class="woocommerce-form woocommerce-form-coupon" method="post" style="display: none;">
+                <div class="row">
+                    <div class="col-md-8 form-group">
+                        <input type="text" class="form-control" placeholder="Coupon code">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <button type="submit" class="vs-btn">Apply coupon</button>
+                    </div>
+                </div>
+            </form>
+            <form action="#" class="woocommerce-form woocommerce-checkout mt-30" id="checkoutForm">
+                <div class="row gx-60">
+                    <div class="col-lg-6">
+                        <h2 class="h4">Billing Details</h2>
+                        <div class="row woocommerce-billing-fields">
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="First Name *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Last Name *" required>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" placeholder="Company Name">
+                            </div>
+                            <div class="col-12 form-group">
+                                <select class="form-select" required>
+                                    <option value="">Country / Region *</option>
+                                    <option value="US" selected>United States (US)</option>
+                                    <option value="PK">Pakistan</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" placeholder="Street Address *" required>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Town / City *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="State *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Postcode / ZIP *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="tel" class="form-control" placeholder="Phone *" required>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="email" class="form-control" placeholder="Email Address *" required>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="checkbox" id="ship-to-different-address">
+                                <label for="ship-to-different-address">Ship to a different address?</label>
+                            </div>
+                            <div class="col-12 shipping_address" style="display:none;">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Shipping First Name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Shipping Last Name">
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <input type="text" class="form-control" placeholder="Shipping Address">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Shipping City">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Shipping ZIP">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 form-group">
+                                <textarea class="form-control" rows="4" placeholder="Order notes (optional)"></textarea>
+                            </div>
                         </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-1.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="gallery-details.html" class="text-inherit">Thai Massage</a></h3>
-                            <span class="gallery-tag">Massage</span>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="h4">Your Order</h2>
+                        <table class="checkout-ordertable">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Safari Max × 1</td>
+                                    <td><span class="amount">$12.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Face Oil × 2</td>
+                                    <td><span class="amount">$40.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Hair Shine × 1</td>
+                                    <td><span class="amount">$55.00</span></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Cart Subtotal</th>
+                                    <td><span class="amount">$107.00</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Shipping</th>
+                                    <td>Free shipping</td>
+                                </tr>
+                                <tr class="order-total">
+                                    <th>Order Total</th>
+                                    <td><strong><span class="amount">$107.00</span></strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="woocommerce-checkout-payment">
+                            <ul class="wc_payment_methods payment_methods methods">
+                                <li class="wc_payment_method payment_method_bacs">
+                                    <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked>
+                                    <label for="payment_method_bacs">Direct bank transfer</label>
+                                    <div class="payment_box payment_method_bacs">
+                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_cheque">
+                                    <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque">
+                                    <label for="payment_method_cheque">Cheque payment</label>
+                                    <div class="payment_box payment_method_cheque">
+                                        <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_cod">
+                                    <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod">
+                                    <label for="payment_method_cod">Cash on delivery</label>
+                                    <div class="payment_box payment_method_cod">
+                                        <p>Pay with cash upon delivery.</p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_paypal">
+                                    <input id="payment_method_paypal" type="radio" class="input-radio" name="payment_method" value="paypal">
+                                    <label for="payment_method_paypal">PayPal <img src="assets/img/card.png" alt="PayPal"></label>
+                                    <div class="payment_box payment_method_paypal">
+                                        <p>Pay via PayPal; you can pay with your credit card if you do not have a PayPal account.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="form-row place-order">
+                                <p class="mb-3">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                                <button type="submit" class="vs-btn">Place order</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-2.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-2.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Body Massage</a></h3>
-                            <span class="gallery-tag">Beauty</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-3.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-3.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Skin Care</a></h3>
-                            <span class="gallery-tag">Expert</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-4.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-4.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Health Care</a></h3>
-                            <span class="gallery-tag">Beauty</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-5.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-5.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Face Care</a></h3>
-                            <span class="gallery-tag">Lifestyle</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-6.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-6.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Eye litelime</a></h3>
-                            <span class="gallery-tag">Classic</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-7.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-7.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Ruler Massage</a></h3>
-                            <span class="gallery-tag">Queen</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-auto filter-item">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="assets/img/gallery/gal-4-8.jpg" alt="Gallery Image" class="w-100">
-                        </div>
-                        <div class="gallery-shape" data-overlay="white" data-opacity="9"></div>
-                        <div class="gallery-content">
-                            <a href="assets/img/gallery/gal-4-8.jpg" class="gallery-btn popup-image"><i class="fal fa-plus"></i></a>
-                            <h3 class="gallery-title"><a href="service-details.html" class="text-inherit">Nose Massage</a></h3>
-                            <span class="gallery-tag">Massage</span>
-                        </div>
-                    </div>
-                </div>
-
+            </form>
+            <div id="orderSuccess" class="text-center py-5" style="display:none;">
+                <div class="woocommerce-message mb-4">Thank you. Your order has been received.</div>
+                <h2 class="h4 mb-3">Order #1042 confirmed</h2>
+                <p>A confirmation email is on its way. We will nourish your order with care.</p>
+                <a href="shop.html" class="vs-btn mt-3">Back to Shop</a>
             </div>
         </div>
     </section><!--==============================
-    Brand Partners
-    ==============================-->
-    <div class="bg-light-2 space-extra">
-        <div class="shape-mockup jump-reverse-img d-none d-xl-block" data-left="2%" data-top="10%"><img src="assets/img/shape/b-s-1-3.png" alt="shape"></div>
-        <div class="shape-mockup jump-img d-none d-xl-block" data-right="2%" data-bottom="8%"><img src="assets/img/shape/b-s-1-4.png" alt="shape"></div>
-        <div class="container">
-            <div class="row vs-carousel text-center" data-slide-show="6" data-lg-slide-show="4" data-md-slide-show="3" data-sm-slide-show="2" data-xs-slide-show="2">
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-1.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-2.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-3.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-4.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-5.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-6.png" alt="brand">
-                </div>
-                <div class="col-auto">
-                    <img src="assets/img/brand/b-1-3.png" alt="brand">
-                </div>
-            </div>
-        </div>
-    </div><!--==============================
 			Footer Area
 	==============================-->
     <footer class="footer-wrapper footer-layout1">
@@ -719,6 +772,27 @@
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+    (function () {
+      var form = document.getElementById('checkoutForm');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        form.style.display = 'none';
+        document.querySelectorAll('.woocommerce-info, .woocommerce-form-login, .woocommerce-form-coupon').forEach(function (el) {
+          el.style.display = 'none';
+        });
+        document.getElementById('orderSuccess').style.display = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+
 
 
 </body>

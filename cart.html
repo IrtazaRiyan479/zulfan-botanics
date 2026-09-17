@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Wellnez - Spa Beauty & Wellness Salon HTML5 Template - Appointment</title>
+    <title>Wellnez - Spa Beauty & Wellness Salon HTML5 Template - Shopping Cart</title>
     <meta name="author" content="Vecuro">
     <meta name="description" content="Wellnez - Spa Beauty & Wellness Salon HTML5 Template">
     <meta name="keywords" content="beauty, beauty salon, beauty shop, beauty spa, cosmetics, hairdresser, health, lifestyle, massage, salon, spa, spa booking, wellness, wellness template, yoga">
@@ -71,9 +71,7 @@
         <div class="preloader-inner">
             <div class="loader"></div>
         </div>
-    </div><svg viewBox="0 0 150 150" class="svg-hidden">
-        <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
-    </svg><!--==============================
+    </div><!--==============================
     Mobile Menu
   ============================== -->
     <div class="vs-menu-wrapper">
@@ -122,6 +120,8 @@
                         <ul class="sub-menu">
                             <li><a href="shop.html">Shop</a></li>
                             <li><a href="shop-details.html">Shop Details</a></li>
+                            <li><a href="cart.html">Shopping Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="gallery.html">Portfolio</a></li>
                             <li><a href="gallery-details.html">Portfolio Details</a></li>
                             <li><a href="appointment.html">Appointment</a></li>
@@ -385,6 +385,8 @@
                                                 <ul>
                                                     <li><a href="shop.html">Shop</a></li>
                                                     <li><a href="shop-details.html">Shop Details</a></li>
+                                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
                                                     <li><a href="contact.html">Contact Us</a></li>
                                                     <li><a href="error.html">Error Page</a></li>
                                                 </ul>
@@ -400,6 +402,7 @@
                         <div class="col-auto">
                             <div class="header-icons">
                                 <button class="searchBoxTggler"><i class="far fa-search"></i></button>
+                                <a href="cart.html" title="Shopping Cart"><i class="far fa-shopping-bag"></i></a>
                                 <a href="contact.html" class="vs-btn style2 d-none d-xl-inline-block">Book</a>
                                 <button class="bar-btn sideMenuToggler d-none d-xl-inline-block">
                                     <span class="bar"></span>
@@ -416,198 +419,197 @@
     </header><!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/breadcumb/breadcumb-bg-3.jpg">
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/breadcumb/breadcumb-bg-4.jpg">
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Appointment</h1>
+                <h1 class="breadcumb-title">Shopping <span class="inner-text">Cart</span></h1>
                 <div class="breadcumb-menu-wrap">
                     <ul class="breadcumb-menu">
                         <li><a href="index.html">Home</a></li>
-                        <li>Appointment</li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li>Shopping <span class="inner-text">Cart</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div><!--==============================
-    Appointment Area
+    Cart Area
     ==============================-->
-    <section class="bg-light-3 space">
-        <div class="shape-mockup jump-img d-none d-xxl-block" data-right="4%" data-top="10%"><img src="assets/img/shape/leaf-1-5.png" alt="shape"></div>
-        <div class="shape-mockup jump-reverse-img d-none d-xxl-block" data-right="2%" data-bottom="5%"><img src="assets/img/shape/b-s-1-3.png" alt="shape"></div>
-        <div class="shape-mockup jump-reverse-img d-none d-xxl-block" data-left="0" data-bottom="4%"><img src="assets/img/shape/b-s-1-2.png" alt="shape"></div>
+    <section class="vs-cart-wrapper space-top space-bottom" data-bg-src="assets/img/bg/body-bg-1.jpg">
         <div class="container">
-            <div class="row gx-60">
-                <div class="col-xl-5 mb-40 mb-xl-0 pb-20 pb-xl-0 wow fadeInUp" data-wow-delay="0.2s">
-                    <form action="#" class="form-style2">
-                        <h2 class="form-title">Book Appointment</h2>
-                        <p class="form-label">Today For Free</p>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email Address">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" autocomplete="off" class="form-control date-pick" placeholder="Select Date">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" autocomplete="off" class="form-control time-pick" placeholder="Select Time">
-                        </div>
-                        <div class="form-group">
-                            <button class="vs-btn" type="submit">Make Appointment</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="row">
-                        <div class="col-12 mb-5">
-                            <h2 class="h3 mb-4 mt-n2">Get Expert Health Consultation</h2>
-                            <p class="fs-md font-title mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat xcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                            <div class="row gy-2">
-                                <div class="col-auto">
-                                    <p class="vs-info"><i class="fal fa-envelope"></i><a href="mailto:example@info.com" class="text-inherit">example@info.com</a></p>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="vs-info"><i class="fal fa-phone-alt"></i><a href="tel:+441233456789" class="text-inherit">+441233456789</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 mb-30">
-                            <img src="assets/img/about/appoin-1-2.jpg" alt="about" class="w-100">
-                        </div>
-                        <div class="col-md-5 mb-30">
-                            <img src="assets/img/about/appoin-1-1.jpg" alt="about" class="w-100">
-                        </div>
-                    </div>
-                </div>
+            <div class="woocommerce-notices-wrapper">
+                <div class="woocommerce-message">Shipping costs updated.</div>
             </div>
-        </div>
-    </section><!--==============================
-    Price Plan Area
-    ==============================-->
-    <section class=" space">
-        <div class="parallax" data-parallax-image="assets/img/bg/price-bg-2-1.jpg"></div>
-        <div class="container">
-            <div class="row flex-row-reverse gx-55">
-                <div class="col-md-6 col-lg-6 col-xl-4 col-xxl align-self-end mb-40 mb-md-0 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="img-box3 style2">
-                        <div class="shape-line">
-                            <svg viewBox="0 0 442 357">
-                                <path class="shape-line" d="M220.6 3C339.98 3 437.1 100.12 437.1 219.5V351.99H440.1V219.5C440.1 160.87 417.27 105.75 375.81 64.29C334.35 22.83 279.23 0 220.6 0C161.97 0 106.85 22.83 65.39 64.29C28.67 101.01 6.57 148.46 2 199.56H5.02C15.12 89.5 107.94 3 220.6 3Z" />
-                                <path class="shape-dot" d="M7 198.5C7 200.433 5.433 202 3.5 202C1.567 202 0 200.433 0 198.5C0 196.567 1.567 195 3.5 195C5.433 195 7 196.567 7 198.5Z" />
-                                <path class="shape-dot" d="M442 353.5C442 355.433 440.433 357 438.5 357C436.567 357 435 355.433 435 353.5C435 351.567 436.567 350 438.5 350C440.433 350 442 351.567 442 353.5Z" />
-                            </svg>
-                        </div>
-                        <div class="text-shape">
-                            <svg viewBox="0 0 408 579">
-                                <path id="textboxpath2" d="M0 204C0 91.3339 91.3339 0 204 0V0C316.666 0 408 91.3339 408 204V316.879V375C408 487.666 316.666 579 204 579V579C91.3339 579 0 487.666 0 375V204Z"></path>
-                                <text>
-                                    <textPath href="#textboxpath2" startOffset="810">Onsectttur adipiscung</textPath>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="img-product">
-                            <a href="shop-details.html"><img src="assets/img/about/price-2-1-1.png" alt="about"></a>
-                            <p class="product-title"><a href="shop-details.html" class="text-inherit">face vitamin</a></p>
-                            <p class="product-price">$12.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-8 col-xxl-auto wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="title-area text-center text-md-start">
-                        <span class="text-white sec-subtitle">Experience Wellnez <span class="sec-subtext bg-theme">25 Years</span></span>
-                        <h2 class="text-white sec-title">Perfect Package</h2>
-                    </div>
-                    <div class="price-inner2">
-                        <div class="row vs-carousel" data-slide-show="2" data-lg-slide-show="1">
-                            <div class="col-lg-6">
-                                <div class="package-style1">
-                                    <div class="package-top">
-                                        <div class="package-left">
-                                            <p class="package-price">12<span class="currency">$</span></p>
-                                            <p class="package-duration">Billed Monthly</p>
+            <form action="#" class="woocommerce-cart-form" id="cartForm">
+                <table class="cart_table">
+                    <thead>
+                        <tr>
+                            <th class="cart-col-image">Image</th>
+                            <th class="cart-col-productname">Product Name</th>
+                            <th class="cart-col-price">Price</th>
+                            <th class="cart-col-quantity">Quantity</th>
+                            <th class="cart-col-total">Total</th>
+                            <th class="cart-col-remove">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart_item" data-price="12">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-1.png" alt="Safari Max"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-details.html">Safari Max</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>12.00</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="1" min="1" max="99">
+                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount line-total"><bdi><span>$</span>12.00</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="cart_item" data-price="20">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-2.png" alt="Face Oil"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-details.html">Face Oil</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>20.00</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="2" min="1" max="99">
+                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount line-total"><bdi><span>$</span>40.00</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="cart_item" data-price="55">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-10.png" alt="Hair Shine"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-details.html">Hair Shine</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>55.00</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="1" min="1" max="99">
+                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount line-total"><bdi><span>$</span>55.00</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="actions">
+                                <div class="vs-cart-coupon">
+                                    <input type="text" id="couponCode" class="form-control" placeholder="Coupon Code...">
+                                    <button type="button" class="vs-btn" id="applyCoupon">Apply Coupon</button>
+                                </div>
+                                <button type="button" class="vs-btn" id="updateCart">Update cart</button>
+                                <a href="shop.html" class="vs-btn">Continue Shopping</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="row justify-content-end">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <h2 class="h4">Cart totals</h2>
+                    <table class="cart_totals">
+                        <tbody>
+                            <tr>
+                                <th>Cart Subtotal</th>
+                                <td data-title="Cart Subtotal">
+                                    <span class="amount" id="cartSubtotal"><bdi><span>$</span>107.00</bdi></span>
+                                </td>
+                            </tr>
+                            <tr class="cart-discount" id="discountRow" style="display:none;">
+                                <th>Coupon</th>
+                                <td data-title="Coupon">
+                                    <span class="amount" id="cartDiscount"><bdi><span>$</span>0.00</bdi></span>
+                                </td>
+                            </tr>
+                            <tr class="shipping">
+                                <th>Shipping and Handling</th>
+                                <td data-title="Shipping and Handling">
+                                    <ul class="woocommerce-shipping-methods list-unstyled">
+                                        <li>
+                                            <input type="radio" id="free_shipping" name="shipping_method" class="shipping_method" value="0" checked>
+                                            <label for="free_shipping">Free shipping</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" value="10">
+                                            <label for="flat_rate">Flat rate: <span class="amount"><bdi><span>$</span>10.00</bdi></span></label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="local_pickup" name="shipping_method" class="shipping_method" value="0">
+                                            <label for="local_pickup">Local pickup</label>
+                                        </li>
+                                    </ul>
+                                    <p class="woocommerce-shipping-destination">Shipping to New York, United States.</p>
+                                    <form action="#" method="post">
+                                        <a href="#" class="shipping-calculator-button">Change address</a>
+                                        <div class="shipping-calculator-form">
+                                            <p class="form-row">
+                                                <select class="form-select">
+                                                    <option value="US" selected>United States (US)</option>
+                                                    <option value="UK">United Kingdom</option>
+                                                    <option value="CA">Canada</option>
+                                                    <option value="AU">Australia</option>
+                                                </select>
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="text" class="form-control" placeholder="State / County">
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="text" class="form-control" placeholder="City">
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="text" class="form-control" placeholder="Postcode / ZIP">
+                                            </p>
+                                            <p>
+                                                <button type="button" class="vs-btn">Update</button>
+                                            </p>
                                         </div>
-                                        <h3 class="package-name">Basic Plan</h3>
-                                    </div>
-                                    <div class="package-shape"><img src="assets/img/shape/price-shape-2.png" alt="shape"></div>
-                                    <div class="package-list">
-                                        <ul class="list-unstyled">
-                                            <li><span class="text-title">Mobile-Optimized</span></li>
-                                            <li>Free Custom Domain</li>
-                                            <li>Best Hosting</li>
-                                            <li>Max Makup</li>
-                                            <li>Outstanding Support</li>
-                                            <li>Happy Customers</li>
-                                        </ul>
-                                    </div>
-                                    <div class="package-btn">
-                                        <a href="contact.html" class="vs-btn style3">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="package-style1">
-                                    <div class="package-top">
-                                        <div class="package-left">
-                                            <p class="package-price">29<span class="currency">$</span></p>
-                                            <p class="package-duration">Billed Yearly</p>
-                                        </div>
-                                        <h3 class="package-name">Mega Plan</h3>
-                                    </div>
-                                    <div class="package-shape"><img src="assets/img/shape/price-shape-2.png" alt="shape"></div>
-                                    <div class="package-list">
-                                        <ul class="list-unstyled">
-                                            <li><span class="text-title">Mobile-Optimized</span></li>
-                                            <li>Free Custom Domain</li>
-                                            <li>Best Hosting</li>
-                                            <li>Max Makup</li>
-                                            <li>Outstanding Support</li>
-                                            <li>Happy Customers</li>
-                                        </ul>
-                                    </div>
-                                    <div class="package-btn">
-                                        <a href="contact.html" class="vs-btn style3">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--==============================
-    Testimonial Area
-    ==============================-->
-    <section class=" space">
-        <div class="parallax" data-parallax-image="assets/img/bg/testi-bg-2-1.jpg"></div>
-        <div class="shape-mockup jump-reverse d-none d-xxl-block" data-top="12%" data-right="6%"><img src="assets/img/shape/leaf-1-1.png" alt="shape"></div>
-        <div class="shape-mockup jump  d-none d-xxl-block" data-top="35%" data-left="17.5%"><img src="assets/img/shape/leaf-1-8.png" alt="shape"></div>
-        <div class="container">
-            <div class="title-area text-center">
-                <span class="sec-subtitle">client testimonial</span>
-                <h2 class="sec-title">Wellnez Customers</h2>
-            </div>
-            <div class="pb-1px"></div>
-            <div class="testi-style2">
-                <span class="vs-icon"><img src="assets/img/icon/quote-1-1.png" alt="icon"></span>
-                <div class="vs-carousel" data-slide-show="1" data-fade="true" data-arrows="true" data-ml-arrows="true" data-xl-arrows="true" data-lg-arrows="true" data-prev-arrow="fal fa-long-arrow-left" data-next-arrow="fal fa-long-arrow-right">
-                    <div>
-                        <p class="testi-text">“We think your skin should look and refshed matter Nourish your outer inner beauty with our essential oil infused beauty products”</p>
-                        <div class="arrow-shape"><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i></div>
-                        <h3 class="testi-name h5">Thomas Muller</h3>
-                        <span class="testi-degi">CEO, SPATHINK</span>
-                    </div>
-                    <div>
-                        <p class="testi-text">“From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage known”</p>
-                        <div class="arrow-shape"><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i></div>
-                        <h3 class="testi-name h5">William Shak</h3>
-                        <span class="testi-degi">Manager, LDC</span>
-                    </div>
-                    <div>
-                        <p class="testi-text">“Creation timelines for the standard lorem ipsum passage vary, with some citing the 15th century and others the part of Cicero”</p>
-                        <div class="arrow-shape"><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i><i class="arrow"></i></div>
-                        <h3 class="testi-name h5">Vivi Marian</h3>
-                        <span class="testi-degi">Customer</span>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Order Total</th>
+                                <td data-title="Total">
+                                    <strong><span class="amount" id="cartTotal"><bdi><span>$</span>107.00</bdi></span></strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="wc-proceed-to-checkout mb-30">
+                        <a href="checkout.html" class="vs-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
@@ -760,6 +762,80 @@
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+    (function () {
+      function money(n) {
+        return '<bdi><span>$</span>' + n.toFixed(2) + '</bdi>';
+      }
+      function recalc() {
+        var subtotal = 0;
+        document.querySelectorAll('.cart_item').forEach(function (row) {
+          var price = parseFloat(row.getAttribute('data-price')) || 0;
+          var qty = parseInt(row.querySelector('.qty-input').value, 10) || 1;
+          var line = price * qty;
+          subtotal += line;
+          var lt = row.querySelector('.line-total');
+          if (lt) lt.innerHTML = money(line);
+        });
+        var discount = 0;
+        if (window.__couponApplied) discount = subtotal * 0.1;
+        var ship = 0;
+        var checked = document.querySelector('.shipping_method:checked');
+        if (checked) ship = parseFloat(checked.value) || 0;
+        document.getElementById('cartSubtotal').innerHTML = money(subtotal);
+        var drow = document.getElementById('discountRow');
+        if (discount > 0) {
+          drow.style.display = '';
+          document.getElementById('cartDiscount').innerHTML = '-' + money(discount);
+        } else {
+          drow.style.display = 'none';
+        }
+        document.getElementById('cartTotal').innerHTML = money(Math.max(0, subtotal - discount + ship));
+      }
+      document.addEventListener('click', function (e) {
+        var remove = e.target.closest('.cart_item .remove');
+        if (remove) {
+          e.preventDefault();
+          remove.closest('.cart_item').remove();
+          recalc();
+        }
+      });
+      document.querySelectorAll('.shipping_method').forEach(function (r) {
+        r.addEventListener('change', recalc);
+      });
+      var apply = document.getElementById('applyCoupon');
+      if (apply) {
+        apply.addEventListener('click', function () {
+          var code = (document.getElementById('couponCode').value || '').trim().toUpperCase();
+          var notice = document.querySelector('.woocommerce-notices-wrapper .woocommerce-message');
+          if (code === 'WELLNEZ10' || code === 'SPA10') {
+            window.__couponApplied = true;
+            notice.textContent = 'Coupon applied: 10% off.';
+          } else if (!code) {
+            notice.textContent = 'Please enter a coupon code.';
+          } else {
+            window.__couponApplied = false;
+            notice.textContent = 'Coupon "' + code + '" is not valid. Try WELLNEZ10.';
+          }
+          recalc();
+        });
+      }
+      var update = document.getElementById('updateCart');
+      if (update) update.addEventListener('click', recalc);
+      document.querySelectorAll('.qty-input').forEach(function (inp) {
+        inp.addEventListener('change', recalc);
+      });
+      var origPlus = document.querySelectorAll('.quantity-plus');
+      origPlus.forEach(function (btn) {
+        btn.addEventListener('click', function () { setTimeout(recalc, 0); });
+      });
+      document.querySelectorAll('.quantity-minus').forEach(function (btn) {
+        btn.addEventListener('click', function () { setTimeout(recalc, 0); });
+      });
+    })();
+    </script>
+
 
 
 </body>
