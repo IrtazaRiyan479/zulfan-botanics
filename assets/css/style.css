@@ -12333,3 +12333,17 @@ blockquote.vs-quote cite:before {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+
+/* EXTRA CUSTOM CSS */
+.product-style1 .product-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.product-style1 .product-price {
+  display: block;
+  float: none;
+  margin-top: 8px;
+  white-space: nowrap;
+}
