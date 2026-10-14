@@ -435,186 +435,509 @@
     </div><!--==============================
     Cart Area
     ==============================-->
-    <section class="vs-cart-wrapper space-top space-bottom" data-bg-src="assets/img/bg/body-bg-1.jpg">
+    <section class=" space-top space-extra-bottom">
         <div class="container">
-            <div class="woocommerce-notices-wrapper">
-                <div class="woocommerce-message">Shipping costs updated.</div>
+            <div class="woocommerce-notices-wrapper mb-4">
+                <div class="woocommerce-message" id="cartNotice" style="display:none;"></div>
             </div>
             <form action="#" class="woocommerce-cart-form" id="cartForm">
-                <table class="cart_table">
-                    <thead>
-                        <tr>
-                            <th class="cart-col-image">Image</th>
-                            <th class="cart-col-productname">Product Name</th>
-                            <th class="cart-col-price">Price</th>
-                            <th class="cart-col-quantity">Quantity</th>
-                            <th class="cart-col-total">Total</th>
-                            <th class="cart-col-remove">Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="cart_item" data-price="12">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-1.png" alt="Safari Max"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">Safari Max</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>12.00</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount line-total"><bdi><span>$</span>12.00</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item" data-price="20">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-2.png" alt="Face Oil"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">Face Oil</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>20.00</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="2" min="1" max="99">
-                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount line-total"><bdi><span>$</span>40.00</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item" data-price="55">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="assets/img/product/p-2-10.png" alt="Hair Shine"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">Hair Shine</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>55.00</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount line-total"><bdi><span>$</span>55.00</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="6" class="actions">
-                                <div class="vs-cart-coupon">
-                                    <input type="text" id="couponCode" class="form-control" placeholder="Coupon Code...">
-                                    <button type="button" class="vs-btn" id="applyCoupon">Apply Coupon</button>
-                                </div>
-                                <button type="button" class="vs-btn" id="updateCart">Update cart</button>
-                                <a href="shop.html" class="vs-btn">Continue Shopping</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-            <div class="row justify-content-end">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <h2 class="h4">Cart totals</h2>
-                    <table class="cart_totals">
-                        <tbody>
+                <div class="table-responsive">
+                    <table class="cart_table mb-0">
+                        <thead>
                             <tr>
-                                <th>Cart Subtotal</th>
-                                <td data-title="Cart Subtotal">
-                                    <span class="amount" id="cartSubtotal"><bdi><span>$</span>107.00</bdi></span>
-                                </td>
+                                <th class="cart-col-image">Image</th>
+                                <th class="cart-col-productname">Product</th>
+                                <th class="cart-col-price">Price</th>
+                                <th class="cart-col-quantity">Quantity</th>
+                                <th class="cart-col-total">Total</th>
+                                <th class="cart-col-remove">Remove</th>
                             </tr>
-                            <tr class="cart-discount" id="discountRow" style="display:none;">
-                                <th>Coupon</th>
-                                <td data-title="Coupon">
-                                    <span class="amount" id="cartDiscount"><bdi><span>$</span>0.00</bdi></span>
+                        </thead>
+                        <tbody id="cartBody">
+                            <tr class="cart_item" data-price="7500" data-name="Badam Noor Oil">
+                                <td data-title="Product">
+                                    <a class="cart-productimage" href="shop-details-badam.html"><img width="91" height="91" src="assets/img/product/p-2-2.png" alt="Badam Noor Oil"></a>
                                 </td>
-                            </tr>
-                            <tr class="shipping">
-                                <th>Shipping and Handling</th>
-                                <td data-title="Shipping and Handling">
-                                    <ul class="woocommerce-shipping-methods list-unstyled">
-                                        <li>
-                                            <input type="radio" id="free_shipping" name="shipping_method" class="shipping_method" value="0" checked>
-                                            <label for="free_shipping">Free shipping</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" value="10">
-                                            <label for="flat_rate">Flat rate: <span class="amount"><bdi><span>$</span>10.00</bdi></span></label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="local_pickup" name="shipping_method" class="shipping_method" value="0">
-                                            <label for="local_pickup">Local pickup</label>
-                                        </li>
-                                    </ul>
-                                    <p class="woocommerce-shipping-destination">Shipping to New York, United States.</p>
-                                    <form action="#" method="post">
-                                        <a href="#" class="shipping-calculator-button">Change address</a>
-                                        <div class="shipping-calculator-form">
-                                            <p class="form-row">
-                                                <select class="form-select">
-                                                    <option value="US" selected>United States (US)</option>
-                                                    <option value="UK">United Kingdom</option>
-                                                    <option value="CA">Canada</option>
-                                                    <option value="AU">Australia</option>
-                                                </select>
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="State / County">
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="City">
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="Postcode / ZIP">
-                                            </p>
-                                            <p>
-                                                <button type="button" class="vs-btn">Update</button>
-                                            </p>
-                                        </div>
-                                    </form>
+                                <td data-title="Name">
+                                    <a class="cart-productname" href="shop-details-badam.html">Badam Noor Oil</a>
+                                    <span class="d-block text-muted fs-14">Shine</span>
                                 </td>
-                            </tr>
-                            <tr class="order-total">
-                                <th>Order Total</th>
+                                <td data-title="Price">
+                                    <span class="amount"><bdi>Rs. 7,500</bdi></span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <div class="quantity">
+                                        <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                        <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                    </div>
+                                </td>
                                 <td data-title="Total">
-                                    <strong><span class="amount" id="cartTotal"><bdi><span>$</span>107.00</bdi></span></strong>
+                                    <span class="amount line-total"><bdi>Rs. 7,500</bdi></span>
+                                </td>
+                                <td data-title="Remove">
+                                    <a href="#" class="remove" title="Remove"><i class="fal fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="cart_item" data-price="10500" data-name="Rosemary Hibiscus Elixir">
+                                <td data-title="Product">
+                                    <a class="cart-productimage" href="shop-details-rosemary.html"><img width="91" height="91" src="assets/img/product/p-2-1.png" alt="Rosemary Hibiscus Elixir"></a>
+                                </td>
+                                <td data-title="Name">
+                                    <a class="cart-productname" href="shop-details-rosemary.html">Rosemary Hibiscus Elixir</a>
+                                    <span class="d-block text-muted fs-14">Scalp Care</span>
+                                </td>
+                                <td data-title="Price">
+                                    <span class="amount"><bdi>Rs. 10,500</bdi></span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <div class="quantity">
+                                        <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                        <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td data-title="Total">
+                                    <span class="amount line-total"><bdi>Rs. 10,500</bdi></span>
+                                </td>
+                                <td data-title="Remove">
+                                    <a href="#" class="remove" title="Remove"><i class="fal fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="cart_item" data-price="12000" data-name="Heritage Herbal Oil">
+                                <td data-title="Product">
+                                    <a class="cart-productimage" href="shop-details-heritage.html"><img width="91" height="91" src="assets/img/product/p-2-10.png" alt="Heritage Herbal Oil"></a>
+                                </td>
+                                <td data-title="Name">
+                                    <a class="cart-productname" href="shop-details-heritage.html">Heritage Herbal Oil</a>
+                                    <span class="d-block text-muted fs-14">Signature Blend</span>
+                                </td>
+                                <td data-title="Price">
+                                    <span class="amount"><bdi>Rs. 12,000</bdi></span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <div class="quantity">
+                                        <button type="button" class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                        <button type="button" class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td data-title="Total">
+                                    <span class="amount line-total"><bdi>Rs. 12,000</bdi></span>
+                                </td>
+                                <td data-title="Remove">
+                                    <a href="#" class="remove" title="Remove"><i class="fal fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="wc-proceed-to-checkout mb-30">
-                        <a href="checkout.html" class="vs-btn">Proceed to checkout</a>
+                </div>
+                <div class="row align-items-center gy-3 mt-4 pt-2">
+                    <div class="col-md">
+                        <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <input type="text" id="couponCode" class="form-control" style="max-width:220px;" placeholder="Coupon code">
+                            <button type="button" class="vs-btn" id="applyCoupon">Apply Coupon</button>
+                        </div>
+                    </div>
+                    <div class="col-md-auto">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="button" class="vs-btn style3" id="updateCart">Update Cart</button>
+                            <a href="shop.html" class="vs-btn">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row justify-content-end mt-5">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="cart-totals-box">
+                        <h2 class="ct-heading">Cart Totals</h2>
+                        <div class="ct-row">
+                            <span class="ct-label">Subtotal</span>
+                            <span class="ct-value" id="cartSubtotal">Rs. 30,000</span>
+                        </div>
+                        <div class="ct-row" id="discountRow" style="display:none;">
+                            <span class="ct-label">Discount</span>
+                            <span class="ct-value text-theme" id="cartDiscount">− Rs. 0</span>
+                        </div>
+                        <div class="ct-ship">
+                            <p class="ct-ship-title">Shipping</p>
+                            <label class="ct-ship-opt">
+                                <input type="radio" name="shipping_method" class="shipping_method" value="0" checked>
+                                <span>Free shipping <em>(Pakistan)</em></span>
+                            </label>
+                            <label class="ct-ship-opt">
+                                <input type="radio" name="shipping_method" class="shipping_method" value="300">
+                                <span>Express delivery <em>Rs. 300</em></span>
+                            </label>
+                            <label class="ct-ship-opt">
+                                <input type="radio" name="shipping_method" class="shipping_method" value="0">
+                                <span>Pickup in Bahawalpur</span>
+                            </label>
+                            <p class="ct-ship-note">From Cheema Town, Bahawalpur · nationwide</p>
+                        </div>
+                        <div class="ct-total">
+                            <span>Order Total</span>
+                            <strong id="cartTotal">Rs. 30,000</strong>
+                        </div>
+                        <a href="checkout.html" class="vs-btn w-100 text-center ct-btn">Proceed to Checkout</a>
+                        <div class="cart-trust">
+                            <span><i class="fas fa-shield-alt"></i> Secure</span>
+                            <span><i class="fas fa-truck"></i> Free ship PK</span>
+                            <span><i class="fas fa-undo"></i> Easy returns</span>
+                            <span><i class="fas fa-lock"></i> Encrypted</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!--==============================
+    </section>
+<style>
+/* —— Cart table —— */
+.cart_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid rgba(104,86,70,.14);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.cart_table thead th {
+  font-family: Marcellus, serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #5c4e42;
+  padding: 18px 24px;
+  background: #f5f1eb;
+  border-bottom: 1px solid rgba(104,86,70,.12);
+  text-align: center;
+  white-space: nowrap;
+}
+.cart_table thead th.cart-col-productname { text-align: left; }
+.cart_table tbody td {
+  padding: 28px 24px;
+  border-bottom: 1px solid rgba(104,86,70,.09);
+  vertical-align: middle;
+  color: #3d3229;
+  text-align: center;
+}
+.cart_table tbody td[data-title="Name"] { text-align: left; }
+.cart_table tbody tr:last-child td { border-bottom: 0; }
+.cart_table .cart-productimage {
+  display: inline-block;
+  line-height: 0;
+}
+.cart_table .cart-productimage img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0,0,0,.07);
+}
+.cart_table .cart-productname {
+  font-family: Marcellus, serif;
+  font-size: 17px;
+  color: #2c241c;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.cart_table .cart-productname:hover { color: #685646; }
+.cart_table .quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(104,86,70,.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.cart_table .qty-btn {
+  width: 38px; height: 42px;
+  border: 0; background: #f3efe9;
+  cursor: pointer; color: #685646;
+  transition: background .2s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.cart_table .qty-btn:hover { background: #e8e2d8; }
+.cart_table .qty-input {
+  width: 48px; height: 42px;
+  border: 0; text-align: center;
+  background: #fff; font-weight: 600;
+  font-size: 15px;
+  -moz-appearance: textfield;
+}
+.cart_table .qty-input::-webkit-outer-spin-button,
+.cart_table .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.cart_table .amount { font-weight: 500; white-space: nowrap; }
+.cart_table .remove {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  color: #8a6a5a; background: #f3efe9;
+  transition: all .2s;
+}
+.cart_table .remove:hover { color: #fff; background: #c45c4a; }
+
+/* —— Action row buttons —— */
+.woocommerce-cart-form .vs-btn {
+  min-height: 48px;
+  padding: 12px 28px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.woocommerce-cart-form .form-control {
+  min-height: 48px;
+  border-radius: 8px;
+  border-color: rgba(104,86,70,.2);
+  padding: 10px 16px;
+}
+
+/* —— Totals —— */
+.cart-totals-box {
+  border-radius: 14px;
+  border: 1px solid rgba(104,86,70,.14) !important;
+  box-shadow: 0 12px 40px rgba(68,48,32,.06);
+  background: #fff;
+}
+.cart-totals-box h2 {
+  font-family: Marcellus, serif;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+.cart_totals th, .cart_totals td { padding: 14px 0; font-size: 15px; }
+.cart_totals .order-total th,
+.cart_totals .order-total td {
+  padding-top: 20px;
+  border-top: 1px solid rgba(104,86,70,.14);
+}
+.woocommerce-shipping-methods input[type=radio] { accent-color: #685646; }
+.cart-trust {
+  display: flex; flex-wrap: wrap; gap: 14px 20px;
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid rgba(104,86,70,.1);
+  font-size: 13px; color: #6b5e52;
+}
+.cart-trust span { display: inline-flex; align-items: center; gap: 6px; }
+.cart-trust i { color: #685646; font-size: 14px; }
+.gap-2 { gap: .75rem; }
+#updateCart { transition: transform .2s, box-shadow .2s; }
+#updateCart:active { transform: scale(.97); }
+.vs-btn { transition: transform .2s, box-shadow .2s, background .2s; }
+.vs-btn:hover { transform: translateY(-1px); }
+@media (max-width: 767px) {
+  .cart_table thead { display: none; }
+  .cart_table { border: 0; background: transparent; }
+  .cart_table tbody tr.cart_item {
+    display: block;
+    border: 1px solid rgba(104,86,70,.14);
+    margin-bottom: 1.15rem;
+    border-radius: 14px;
+    padding: 18px 16px;
+    background: #fff;
+  }
+  .cart_table tbody td {
+    display: flex; justify-content: space-between; align-items: center;
+    border: 0; padding: 12px 6px;
+    text-align: right !important;
+  }
+  .cart_table td::before {
+    content: attr(data-title);
+    font-weight: 500; margin-right: 12px; color: #6b5e52;
+    text-align: left;
+  }
+  .cart_table td[data-title="Product"]::before { display: none; }
+  .cart_table td[data-title="Product"] { justify-content: center; }
+  .cart_table td[data-title="Name"] { text-align: left !important; flex-direction: column; align-items: flex-start; }
+  .cart_table td[data-title="Name"]::before { margin-bottom: 4px; }
+}
+
+/* Cart totals — modern summary card (no table) */
+.cart-totals-box {
+  background: #fff;
+  border: 1px solid rgba(104,86,70,.14);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 16px 48px rgba(68,48,32,.07);
+}
+.ct-heading {
+  font-family: Marcellus, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #2c241c;
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(104,86,70,.12);
+}
+.ct-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #3d3229;
+}
+.ct-label { color: #5c4e42; }
+.ct-value { font-weight: 600; }
+.ct-ship {
+  margin: 8px 0 4px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(104,86,70,.1);
+  border-bottom: 1px solid rgba(104,86,70,.1);
+}
+.ct-ship-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #8a7b6c;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.ct-ship-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 15px;
+  color: #2c241c;
+  margin: 0;
+}
+.ct-ship-opt input {
+  margin-top: 3px;
+  accent-color: #685646;
+  flex-shrink: 0;
+}
+.ct-ship-opt em {
+  font-style: normal;
+  color: #8a7b6c;
+  font-size: 13px;
+  margin-left: 4px;
+}
+.ct-ship-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #9a8b7c;
+  padding-left: 26px;
+}
+.ct-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 22px;
+  font-size: 17px;
+  color: #2c241c;
+}
+.ct-total strong {
+  font-size: 22px;
+  color: #685646;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ct-btn { margin-bottom: 4px; }
+.cart-trust {
+  display: flex; flex-wrap: wrap; gap: 10px 16px;
+  margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid rgba(104,86,70,.1);
+  font-size: 12px; color: #7a6b5c;
+}
+.cart-trust span { display: inline-flex; align-items: center; gap: 5px; }
+.cart-trust i { color: #685646; font-size: 13px; }
+</style>
+<script>
+(function () {
+  function fmt(n) {
+    return '<bdi>Rs. ' + Math.round(n).toLocaleString('en-PK') + '</bdi>';
+  }
+  function notice(msg) {
+    var el = document.getElementById('cartNotice');
+    if (!el) return;
+    el.style.display = msg ? '' : 'none';
+    el.textContent = msg || '';
+  }
+  function recalc() {
+    var subtotal = 0;
+    document.querySelectorAll('.cart_item').forEach(function (row) {
+      var price = parseFloat(row.getAttribute('data-price')) || 0;
+      var qtyInp = row.querySelector('.qty-input');
+      var qty = parseInt(qtyInp && qtyInp.value, 10) || 1;
+      if (qty < 1) { qty = 1; if (qtyInp) qtyInp.value = 1; }
+      var line = price * qty;
+      subtotal += line;
+      var lt = row.querySelector('.line-total');
+      if (lt) lt.innerHTML = fmt(line);
+    });
+    var discount = window.__couponApplied ? Math.round(subtotal * 0.1) : 0;
+    var ship = 0;
+    var checked = document.querySelector('.shipping_method:checked');
+    if (checked) ship = parseFloat(checked.value) || 0;
+    function rs(n) { return 'Rs. ' + Math.round(n).toLocaleString('en-PK'); }
+    var sub = document.getElementById('cartSubtotal');
+    if (sub) sub.textContent = rs(subtotal);
+    var drow = document.getElementById('discountRow');
+    if (drow) {
+      if (discount > 0) {
+        drow.style.display = '';
+        document.getElementById('cartDiscount').textContent = '− Rs. ' + discount.toLocaleString('en-PK');
+      } else drow.style.display = 'none';
+    }
+    var tot = document.getElementById('cartTotal');
+    if (tot) tot.textContent = rs(Math.max(0, subtotal - discount + ship));
+  }
+  document.addEventListener('click', function (e) {
+    var rm = e.target.closest('.cart_item .remove');
+    if (rm) {
+      e.preventDefault();
+      rm.closest('.cart_item').remove();
+      notice('Item removed from cart.');
+      recalc();
+      return;
+    }
+    var plus = e.target.closest('.quantity-plus');
+    var minus = e.target.closest('.quantity-minus');
+    if (plus || minus) {
+      var wrap = (plus || minus).closest('.quantity');
+      var inp = wrap && wrap.querySelector('.qty-input');
+      if (!inp) return;
+      var v = parseInt(inp.value, 10) || 1;
+      if (plus) v += 1;
+      else v = Math.max(1, v - 1);
+      inp.value = v;
+      setTimeout(recalc, 0);
+    }
+  });
+  document.querySelectorAll('.shipping_method').forEach(function (r) {
+    r.addEventListener('change', recalc);
+  });
+  document.querySelectorAll('.qty-input').forEach(function (inp) {
+    inp.addEventListener('change', recalc);
+  });
+  var apply = document.getElementById('applyCoupon');
+  if (apply) apply.addEventListener('click', function () {
+    var code = (document.getElementById('couponCode').value || '').trim().toUpperCase();
+    if (code === 'ZULFAAN10' || code === 'HAIR10') {
+      window.__couponApplied = true;
+      notice('Coupon applied: 10% off.');
+    } else if (!code) {
+      notice('Enter a coupon code.');
+    } else {
+      window.__couponApplied = false;
+      notice('Coupon not valid. Try ZULFAAN10.');
+    }
+    recalc();
+  });
+  var update = document.getElementById('updateCart');
+  if (update) update.addEventListener('click', function () {
+    recalc();
+    notice('Cart updated.');
+  });
+  recalc();
+})();
+</script>
+<!--==============================
 			Footer Area
 	==============================-->
     <footer class="footer-wrapper footer-layout1">
@@ -762,82 +1085,6 @@
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
-
-    <script>
-    (function () {
-      function money(n) {
-        return '<bdi><span>$</span>' + n.toFixed(2) + '</bdi>';
-      }
-      function recalc() {
-        var subtotal = 0;
-        document.querySelectorAll('.cart_item').forEach(function (row) {
-          var price = parseFloat(row.getAttribute('data-price')) || 0;
-          var qty = parseInt(row.querySelector('.qty-input').value, 10) || 1;
-          var line = price * qty;
-          subtotal += line;
-          var lt = row.querySelector('.line-total');
-          if (lt) lt.innerHTML = money(line);
-        });
-        var discount = 0;
-        if (window.__couponApplied) discount = subtotal * 0.1;
-        var ship = 0;
-        var checked = document.querySelector('.shipping_method:checked');
-        if (checked) ship = parseFloat(checked.value) || 0;
-        document.getElementById('cartSubtotal').innerHTML = money(subtotal);
-        var drow = document.getElementById('discountRow');
-        if (discount > 0) {
-          drow.style.display = '';
-          document.getElementById('cartDiscount').innerHTML = '-' + money(discount);
-        } else {
-          drow.style.display = 'none';
-        }
-        document.getElementById('cartTotal').innerHTML = money(Math.max(0, subtotal - discount + ship));
-      }
-      document.addEventListener('click', function (e) {
-        var remove = e.target.closest('.cart_item .remove');
-        if (remove) {
-          e.preventDefault();
-          remove.closest('.cart_item').remove();
-          recalc();
-        }
-      });
-      document.querySelectorAll('.shipping_method').forEach(function (r) {
-        r.addEventListener('change', recalc);
-      });
-      var apply = document.getElementById('applyCoupon');
-      if (apply) {
-        apply.addEventListener('click', function () {
-          var code = (document.getElementById('couponCode').value || '').trim().toUpperCase();
-          var notice = document.querySelector('.woocommerce-notices-wrapper .woocommerce-message');
-          if (code === 'WELLNEZ10' || code === 'SPA10') {
-            window.__couponApplied = true;
-            notice.textContent = 'Coupon applied: 10% off.';
-          } else if (!code) {
-            notice.textContent = 'Please enter a coupon code.';
-          } else {
-            window.__couponApplied = false;
-            notice.textContent = 'Coupon "' + code + '" is not valid. Try WELLNEZ10.';
-          }
-          recalc();
-        });
-      }
-      var update = document.getElementById('updateCart');
-      if (update) update.addEventListener('click', recalc);
-      document.querySelectorAll('.qty-input').forEach(function (inp) {
-        inp.addEventListener('change', recalc);
-      });
-      var origPlus = document.querySelectorAll('.quantity-plus');
-      origPlus.forEach(function (btn) {
-        btn.addEventListener('click', function () { setTimeout(recalc, 0); });
-      });
-      document.querySelectorAll('.quantity-minus').forEach(function (btn) {
-        btn.addEventListener('click', function () { setTimeout(recalc, 0); });
-      });
-    })();
-    </script>
-
-
-
 </body>
 
 </html>
