@@ -119,7 +119,7 @@
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
                             <li><a href="shop.html">Shop</a></li>
-                            <li><a href="shop-details.html">Shop Details</a></li>
+                            <li><a href="product-pages/rosemary.html">Shop Details</a></li>
                             <li><a href="cart.html">Shopping Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="gallery.html">Portfolio</a></li>
@@ -384,7 +384,7 @@
                                             <li><a href="#">Pagelist 4</a>
                                                 <ul>
                                                     <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                                    <li><a href="product-pages/rosemary.html">Shop Details</a></li>
                                                     <li><a href="cart.html">Shopping Cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
                                                     <li><a href="contact.html">Contact Us</a></li>
@@ -438,16 +438,24 @@
     <section class=" space-top space-extra-bottom">
         <div class="container">
             <div class="checkout-top mb-4">
+                                <div class="woocommerce-info mb-3">
+                    <i class="fas fa-user-circle me-2"></i>Customer account <button type="button" id="showSignup" class="btn btn-link p-0">Create account</button>
+                </div>
+                <form action="#" class="woocommerce-form border p-4 mb-3 bg-white" id="signupForm" style="display:none;">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" minlength="8" required>
+                    <button type="submit" class="vs-btn">Create account</button><p class="auth-message"></p>
+                </form>
                 <div class="woocommerce-info mb-3">
                     <i class="fas fa-user-circle me-2"></i>Returning customer? <a href="#" id="toggleLogin">Click here to login</a>
                 </div>
                 <form action="#" class="woocommerce-form woocommerce-form-login border p-4 mb-3 bg-white" id="loginForm" style="display:none;">
                     <div class="row gy-3 align-items-center">
                         <div class="col-md-4">
-                            <input type="text" class="form-control" placeholder="Username or email *">
+                            <input type="text" class="form-control" placeholder="Username or email *" name="login_email" required>
                         </div>
                         <div class="col-md-4">
-                            <input type="password" class="form-control" placeholder="Password *">
+                            <input type="password" class="form-control" placeholder="Password *" name="login_password" required>
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="vs-btn w-100">Login</button>
@@ -466,7 +474,7 @@
                 <form action="#" class="woocommerce-form woocommerce-form-coupon border p-4 mb-0 bg-white" id="couponForm" style="display:none;">
                     <div class="row gy-3 align-items-center">
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Coupon code" id="checkoutCoupon">
+                            <input type="text" class="form-control" name="coupon" placeholder="Coupon code" id="checkoutCoupon">
                         </div>
                         <div class="col-md-3">
                             <button type="button" class="vs-btn w-100" id="applyCheckoutCoupon">Apply Coupon</button>
@@ -481,10 +489,10 @@
                             <h2 class="h4 mb-4">Billing Details</h2>
                             <div class="row gy-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="First Name *" required>
+                                    <input type="text" class="form-control" name="customer_first_name" placeholder="First Name *" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Last Name *" required>
+                                    <input type="text" class="form-control" name="customer_last_name" placeholder="Last Name *" required>
                                 </div>
                                 <div class="col-12">
                                     <input type="text" class="form-control" placeholder="Company Name (optional)">
@@ -499,13 +507,13 @@
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Street Address *" required>
+                                    <input type="text" class="form-control" name="customer_address" placeholder="Street Address *" required>
                                 </div>
                                 <div class="col-12">
                                     <input type="text" class="form-control" placeholder="Apartment, suite, unit (optional)">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="City *" required>
+                                    <input type="text" class="form-control" name="customer_city" placeholder="City *" required>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="Province *" required>
@@ -514,13 +522,13 @@
                                     <input type="text" class="form-control" placeholder="Postal Code">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" class="form-control" placeholder="Phone *" required>
+                                    <input type="tel" class="form-control" name="customer_phone" placeholder="Phone *" pattern="03[0-9]{9}" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control" placeholder="Email Address *" required>
+                                    <input type="email" class="form-control" name="customer_email" placeholder="Email Address *">
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control" rows="3" placeholder="Order notes (optional) — e.g. delivery instructions"></textarea>
+                                    <textarea class="form-control" name="customer_notes" rows="3" placeholder="Order notes (optional) — e.g. delivery instructions"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -533,29 +541,20 @@
                                     <span>Product</span>
                                     <span>Total</span>
                                 </div>
-                                <div class="os-line">
-                                    <span class="os-name">Badam Noor Oil <small>× 1</small></span>
-                                    <span class="os-price">Rs. 7,500</span>
-                                </div>
-                                <div class="os-line">
-                                    <span class="os-name">Rosemary Hibiscus Elixir <small>× 1</small></span>
-                                    <span class="os-price">Rs. 10,500</span>
-                                </div>
-                                <div class="os-line">
-                                    <span class="os-name">Heritage Herbal Oil <small>× 1</small></span>
-                                    <span class="os-price">Rs. 12,000</span>
-                                </div>
+                                <div class="os-items"></div>
                                 <div class="os-meta">
-                                    <div class="os-row"><span>Subtotal</span><span>Rs. 30,000</span></div>
-                                    <div class="os-row"><span>Shipping</span><span>Free (Pakistan)</span></div>
+                                    <div class="os-row"><span>Subtotal</span><span class="checkout-subtotal">Rs. 0</span></div>
+                                    <div class="os-row"><span>Discount</span><span class="checkout-discount">Rs. 0</span></div>
+                                    <div class="os-row"><span>Shipping</span><span class="checkout-shipping">Rs. 250</span></div>
                                 </div>
                                 <div class="os-grand">
                                     <span>Order Total</span>
-                                    <strong>Rs. 30,000</strong>
+                                    <strong class="checkout-total">Rs. 0</strong>
                                 </div>
                             </div>
                             <div class="woocommerce-checkout-payment">
                                 <p class="checkout-pay-title">Payment Method</p>
+                                <div class="payment-status" id="paymentMessage" role="status"></div>
                                 <div class="payment-methods">
                                     <label class="payment-option">
                                         <input type="radio" name="payment_method" value="cod" checked>
@@ -568,35 +567,21 @@
                                         </span>
                                     </label>
                                     <label class="payment-option">
-                                        <input type="radio" name="payment_method" value="bank">
-                                        <span class="pay-body">
-                                            <span class="pay-top">
-                                                <strong>Bank Transfer</strong>
-                                                <i class="fas fa-university pay-icon"></i>
-                                            </span>
-                                            <span class="pay-desc">Transfer to our account. Ships after confirmation.</span>
-                                        </span>
-                                    </label>
-                                    <label class="payment-option">
                                         <input type="radio" name="payment_method" value="jazzcash">
-                                        <span class="pay-body">
-                                            <span class="pay-top">
-                                                <strong>JazzCash</strong>
-                                                <i class="fas fa-mobile-alt pay-icon"></i>
-                                            </span>
-                                            <span class="pay-desc">Pay via JazzCash wallet. Details sent after order.</span>
-                                        </span>
+                                        <span class="pay-body"><span class="pay-top"><strong>JazzCash</strong><i class="fas fa-mobile-alt pay-icon"></i></span><span class="pay-desc">Pay from your JazzCash wallet or open the hosted page.</span></span>
                                     </label>
+                                    <div id="jazzcashFields" class="payment-details" style="display:none"><input id="jazzMobile" class="form-control mb-2" type="tel" placeholder="JazzCash mobile: 03xxxxxxxxx"><input id="jazzCnic" class="form-control mb-2" inputmode="numeric" maxlength="6" placeholder="CNIC last 6 digits"><button type="button" class="vs-btn" id="jazzWalletButton">Pay from JazzCash wallet</button> <button type="button" class="vs-btn style3" id="jazzHostedButton">Open JazzCash page</button></div>
                                     <label class="payment-option">
                                         <input type="radio" name="payment_method" value="easypaisa">
-                                        <span class="pay-body">
-                                            <span class="pay-top">
-                                                <strong>EasyPaisa</strong>
-                                                <i class="fas fa-wallet pay-icon"></i>
-                                            </span>
-                                            <span class="pay-desc">Pay via EasyPaisa. Details sent after order.</span>
-                                        </span>
+                                        <span class="pay-body"><span class="pay-top"><strong>EasyPaisa</strong><i class="fas fa-wallet pay-icon"></i></span><span class="pay-desc">Pay through EasyPaisa Mobile Account.</span></span>
                                     </label>
+                                    <div id="easypaisaFields" class="payment-details" style="display:none"><input id="easyMobile" class="form-control mb-2" type="tel" placeholder="EasyPaisa mobile: 03xxxxxxxxx"><button type="button" class="vs-btn" id="easyRequestButton">Send EasyPaisa request</button> <button type="button" class="vs-btn style3" id="easyHostedButton">Open EasyPaisa page</button></div>
+                                    <label class="payment-option" id="meezanOption" hidden>
+                                        <input type="radio" name="payment_method" value="meezan">
+                                        <span class="pay-body"><span class="pay-top"><strong>Meezan card</strong></span></span>
+                                    </label>
+                                    <div id="meezanFields" class="payment-details" style="display:none"><button type="button" class="vs-btn" id="meezanPayButton">Pay by card</button></div>
+
                                 </div>
                                 <div class="checkout-trust">
                                     <span><i class="fas fa-shield-alt"></i> SSL Secure</span>
@@ -610,7 +595,7 @@
                     </div>
                 </div>
             </form>
-            <div id="orderSuccess" class="text-center py-5" style="display:none;">
+        <div id="orderSuccess" class="text-center py-5" style="display:none;">
                 <div class="woocommerce-message d-inline-block mb-4 px-4 py-2">Thank you. Your order has been received.</div>
                 <h2 class="h3 mb-3">Order confirmed</h2>
                 <p class="mb-4">We will contact you on WhatsApp or phone to confirm delivery. Packed in Bahawalpur, shipped across Pakistan.</p>
@@ -833,31 +818,11 @@
 /* hide any leftover table styles if theme injects */
 .checkout-ordertable { display: none !important; }
 </style>
-<script>
 (function () {
   var loginToggle = document.getElementById('toggleLogin');
   var couponToggle = document.getElementById('toggleCoupon');
-  if (loginToggle) loginToggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    var f = document.getElementById('loginForm');
-    f.style.display = f.style.display === 'none' ? '' : 'none';
-  });
-  if (couponToggle) couponToggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    var f = document.getElementById('couponForm');
-    f.style.display = f.style.display === 'none' ? '' : 'none';
-  });
-var form = document.getElementById('checkoutForm');
-  if (form) form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    form.style.display = 'none';
-    document.querySelectorAll('.woocommerce-info, #loginForm, #couponForm').forEach(function (el) {
-      el.style.display = 'none';
-    });
-    document.getElementById('orderSuccess').style.display = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (loginToggle) loginToggle.addEventListener('click', function (e) { e.preventDefault(); var f=document.getElementById('loginForm'); f.style.display=f.style.display==='none'?'':'none'; });
+  if (couponToggle) couponToggle.addEventListener('click', function (e) { e.preventDefault(); var f=document.getElementById('couponForm'); f.style.display=f.style.display==='none'?'':'none'; });
 })();
 </script>
 <!--==============================
@@ -1011,6 +976,13 @@ var form = document.getElementById('checkoutForm');
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/checkout.js"></script>
+    <script src="assets/js/payment-options.js"></script>
+    <script src="assets/js/auth-ui.js"></script>
+    <script src="assets/js/supabase-store.js"></script>
 </body>
 
 </html>

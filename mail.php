@@ -1,53 +1,5 @@
 <?php
-
-    // Only process POST reqeusts.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove whitespace.
-        $name = strip_tags(trim($_POST["name"]));
-        $name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $subject = trim($_POST["subject"]);
-        $message = trim($_POST["message"]);
-
-        // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($message) OR empty($subject) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Set a 400 (bad request) response code and exit.
-            http_response_code(400);
-            echo "Please complete the form and try again.";
-            exit;
-        }
-
-        // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "(yourmail)@gmail.com";
-
-        // Set the email subject.
-        $subject = "New contact from $subject";
-
-        // Build the email content.
-        $email_content = "Name: $name\n";
-        $email_content .= "Subject: $subject\n";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Message:\n$message\n";
-
-        // Build the email headers.
-        $email_headers = "From: $name <$email>";
-
-        // Send the email.
-        if (mail($recipient, $subject, $email_content, $email_headers)) {
-            // Set a 200 (okay) response code.
-            http_response_code(200);
-            echo "Thank You! Your message has been sent.";
-        } else {
-            // Set a 500 (internal server error) response code.
-            http_response_code(500);
-            echo "Oops! Something went wrong and we couldn't send your message.";
-        }
-
-    } else {
-        // Not a POST request, set a 403 (forbidden) response code.
-        http_response_code(403);
-        echo "There was a problem with your submission, please try again.";
-    }
-
-?>
+require_once __DIR__ . '/api/db.php';
+require_once __DIR__ . '/api/smtp.php';
+function mail_json(int $status,array $body): never {http_response_code($status);header('Content-Type: application/json; charset=utf-8');echo json_encode($body);exit;}
+if(($_SERVER['REQUEST_METHOD']??'')!=='POST')mail_json(405,['ok'=>false,'error'=>'Method not allowed']);$in=json_decode(file_get_contents('php://input'),true);if(!is_array($in))$in=$_POST;$name=trim(strip_tags((string)($in['name']??'')));$email=trim((string)($in['email']??''));$subject=trim(strip_tags((string)($in['subject']??'')));$message=trim((string)($in['message']??''));if($name===''||!filter_var($email,FILTER_VALIDATE_EMAIL)||$subject===''||$message==='')mail_json(422,['ok'=>false,'error'=>'Please complete all contact fields with a valid email']);try{$pdo=db();$q=$pdo->prepare('INSERT INTO contacts(name,email,subject,message,created_at) VALUES(?,?,?,?,?)');$q->execute([$name,$email,$subject,$message,gmdate('c')]);$to=app_env('MAIL_TO');$body="Name: $name\nEmail: $email\nSubject: $subject\n\n$message";$mailed=$to!==''&&smtp_send($to,'New contact: '.$subject,$body);if(!$mailed&&$to!=='')$mailed=@mail($to,'New contact: '.$subject,$body,'From: '.app_env('SMTP_FROM',$to));mail_json(200,['ok'=>true,'mailed'=>$mailed]);}catch(Throwable $e){mail_json(500,['ok'=>false,'error'=>'Unable to save your message']);}

@@ -1,0 +1,24 @@
+-- Customer account tables and owner-only access.
+create table if not exists public.profiles(id uuid primary key references auth.users(id) on delete cascade,full_name text not null default '',phone text not null default '',email text not null default '',updated_at timestamptz not null default now());
+create table if not exists public.customer_addresses(id bigint generated always as identity primary key,user_id uuid not null references auth.users(id) on delete cascade,label text not null default 'Delivery address',recipient_name text not null,phone text not null,address text not null,city text not null,created_at timestamptz not null default now(),updated_at timestamptz not null default now());
+create index if not exists customer_addresses_user_id_idx on public.customer_addresses(user_id);
+create table if not exists public.customer_orders(order_no text primary key,user_id uuid not null references auth.users(id) on delete cascade,status text not null,payment_method text not null,subtotal integer not null check(subtotal>=0),discount integer not null default 0 check(discount>=0),shipping integer not null default 0 check(shipping>=0),total integer not null check(total>=0),customer_name text not null,phone text not null,email text not null default '',address text not null,city text not null,created_at timestamptz not null default now());
+create index if not exists customer_orders_user_created_idx on public.customer_orders(user_id,created_at desc);
+create table if not exists public.customer_order_items(id bigint generated always as identity primary key,order_no text not null references public.customer_orders(order_no) on delete cascade,user_id uuid not null references auth.users(id) on delete cascade,slug text not null,name text not null,price integer not null check(price>=0),qty integer not null check(qty between 1 and 20));
+create index if not exists customer_order_items_user_order_idx on public.customer_order_items(user_id,order_no);
+alter table public.profiles enable row level security;alter table public.customer_addresses enable row level security;alter table public.customer_orders enable row level security;alter table public.customer_order_items enable row level security;
+create policy "Customers read own profile" on public.profiles for select to authenticated using((select auth.uid())=id);
+create policy "Customers create own profile" on public.profiles for insert to authenticated with check((select auth.uid())=id);
+create policy "Customers update own profile" on public.profiles for update to authenticated using((select auth.uid())=id) with check((select auth.uid())=id);
+create policy "Customers read own addresses" on public.customer_addresses for select to authenticated using((select auth.uid())=user_id);
+create policy "Customers add own addresses" on public.customer_addresses for insert to authenticated with check((select auth.uid())=user_id);
+create policy "Customers update own addresses" on public.customer_addresses for update to authenticated using((select auth.uid())=user_id) with check((select auth.uid())=user_id);
+create policy "Customers delete own addresses" on public.customer_addresses for delete to authenticated using((select auth.uid())=user_id);
+create policy "Customers read own orders" on public.customer_orders for select to authenticated using((select auth.uid())=user_id);
+create policy "Customers create own orders" on public.customer_orders for insert to authenticated with check((select auth.uid())=user_id);
+create policy "Customers read own order items" on public.customer_order_items for select to authenticated using((select auth.uid())=user_id);
+create policy "Customers add own order items" on public.customer_order_items for insert to authenticated with check((select auth.uid())=user_id);
+grant select,insert,update on public.profiles to authenticated;grant select,insert,update,delete on public.customer_addresses to authenticated;grant select,insert on public.customer_orders to authenticated;grant select,insert on public.customer_order_items to authenticated;revoke all on public.profiles,public.customer_addresses,public.customer_orders,public.customer_order_items from anon;
+create or replace function public.create_customer_profile() returns trigger language plpgsql security definer set search_path = '' as $$ begin insert into public.profiles(id,full_name,phone,email) values(new.id,coalesce(new.raw_user_meta_data->>'full_name',''),coalesce(new.raw_user_meta_data->>'phone',''),coalesce(new.email,'')) on conflict(id) do nothing; return new; end; $$;
+revoke execute on function public.create_customer_profile() from public,anon,authenticated,service_role;
+drop trigger if exists on_auth_user_created_profile on auth.users;create trigger on_auth_user_created_profile after insert on auth.users for each row execute function public.create_customer_profile();

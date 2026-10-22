@@ -1,0 +1,2 @@
+<?php
+require_once __DIR__ . '/db.php';api_method('POST');$in=api_input();$email=strtolower(trim((string)($in['email']??'')));if(!filter_var($email,FILTER_VALIDATE_EMAIL))api_json(422,['ok'=>false,'error'=>'Enter a valid email address']);try{$q=db()->prepare('INSERT OR IGNORE INTO subscribers(email,created_at) VALUES(?,?)');$q->execute([$email,gmdate('c')]);api_json(200,['ok'=>true]);}catch(Throwable $e){api_json(500,['ok'=>false,'error'=>'Unable to subscribe right now']);}

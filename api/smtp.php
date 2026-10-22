@@ -1,0 +1,8 @@
+<?php
+require_once __DIR__ . '/env.php';
+function smtp_send(string $to,string $subject,string $body): bool {
+ $host=app_env('SMTP_HOST');$port=(int)app_env('SMTP_PORT','587');$user=app_env('SMTP_USER');$pass=app_env('SMTP_PASS');$from=app_env('SMTP_FROM',$user?:'noreply@localhost');
+ if($host==='')return false;$errno=0;$errstr='';$socket=@fsockopen($host,$port,$errno,$errstr,12);if(!$socket)return false;stream_set_timeout($socket,12);
+ $read=function()use($socket){$out='';while(($line=fgets($socket,515))!==false){$out.=$line;if(isset($line[3])&&$line[3]===' ')break;}return $out;};$send=function($cmd,$expect)use($socket,$read){if($cmd!==null)fwrite($socket,$cmd."\r\n");$r=$read();return isset($r[0])&&(int)substr($r,0,3)===$expect;};
+ try{if(!$send(null,220)||!$send('EHLO zulfan.local',250))return fclose($socket)??false;if($port===587){if(!$send('STARTTLS',220)||!stream_socket_enable_crypto($socket,true,STREAM_CRYPTO_METHOD_TLS_CLIENT))return fclose($socket)??false;if(!$send('EHLO zulfan.local',250))return fclose($socket)??false;}if($user!==''){if(!$send('AUTH LOGIN',334)||!$send(base64_encode($user),334)||!$send(base64_encode($pass),235))return fclose($socket)??false;}if(!$send('MAIL FROM:<'.$from.'>',250)||!$send('RCPT TO:<'.$to.'>',250)||!$send('DATA',354))return fclose($socket)??false;$headers='From: '.$from."\r\nTo: ".$to."\r\nSubject: ".str_replace(["\r","\n"],' ',$subject)."\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n";fwrite($socket,$headers.$body."\r\n.\r\n");$ok=$read();$send('QUIT',221);fclose($socket);return isset($ok[0])&&(int)substr($ok,0,3)===250;}catch(Throwable $e){fclose($socket);return false;}
+}
