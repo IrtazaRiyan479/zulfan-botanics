@@ -12363,7 +12363,7 @@ blockquote.vs-quote cite:before {
   height: 18px;
   padding: 0 4px;
   border-radius: 999px;
-  background: #2f6bff;
+  background: var(--title-color);
   color: #fff;
   font-family: "DM Sans", sans-serif;
   font-size: 11px;
