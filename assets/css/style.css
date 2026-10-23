@@ -12615,3 +12615,19 @@ a.icon-btn.is-added {
   color: #fff;
   transform: scale(1.06);
 }
+
+/* Compact wishlist Add to Cart (match original sidebar size) */
+.zulfan-wish-row .zulfan-wish-cart-btn,
+.wishlist-items .vs-btn.style4 {
+  display: inline-block;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  min-height: 0 !important;
+  height: auto !important;
+}
+.zulfan-wish-row .media-body {
+  padding-right: 4px;
+}

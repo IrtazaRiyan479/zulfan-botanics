@@ -244,10 +244,11 @@
       render();
     },
     removeWishlist: function (slug) {
+      slug = String(slug || '');
       save(
         'zulfan_wishlist',
         wish().filter(function (x) {
-          return x.slug !== slug;
+          return String(x.slug || '') !== slug;
         })
       );
       render();
@@ -346,7 +347,7 @@
             esc(x.name) +
             '</a></h4><div class="recent-post-meta"><span class="text-theme">' +
             money(x.price) +
-            '</span></div><a href="#" class="vs-btn style4" data-add-cart data-slug="' +
+            '</span></div><a href="#" class="vs-btn style4 zulfan-wish-cart-btn" data-add-cart data-slug="' +
             esc(x.slug) +
             '" data-name="' +
             esc(x.name) +
@@ -498,6 +499,15 @@
       card.querySelectorAll('a.icon-btn, a.vs-btn').forEach(function (a) {
         if (a.querySelector('.fa-heart')) stamp(a, p, true);
         else if (isCartButton(a)) stamp(a, p, false);
+        else if (a.querySelector('.fa-eye') || a.querySelector('.fa-search')) {
+          a.setAttribute('href', p.url);
+          a.setAttribute('title', 'View ' + p.name);
+        }
+      });
+      // product image + title links
+      card.querySelectorAll('a[href="#"], a[href=""]').forEach(function (a) {
+        if (a.closest('.actions')) return;
+        a.setAttribute('href', p.url);
       });
     });
 
@@ -635,62 +645,95 @@
     });
   }
 
-  document.addEventListener('click', function (e) {
-    var add = e.target.closest('[data-add-cart]');
-    if (add) {
-      e.preventDefault();
-      api.addToCart(add.dataset, add);
-      return;
-    }
-    var wishRemove = e.target.closest('[data-wish-remove]');
-    if (wishRemove) {
-      e.preventDefault();
-      e.stopPropagation();
-      var removedName = wishRemove.getAttribute('data-name') || '';
-      api.removeWishlist(wishRemove.getAttribute('data-wish-remove'));
-      showToast('Removed from wishlist', removedName, 'wish');
-      return;
-    }
-    var wishBtn = e.target.closest('[data-wish]');
-    if (wishBtn) {
-      e.preventDefault();
-      wishBtn.classList.remove('is-pop');
-      void wishBtn.offsetWidth;
-      wishBtn.classList.add('is-pop');
-      if (api.inWishlist(wishBtn.dataset.slug)) {
-        api.removeWishlist(wishBtn.dataset.slug);
-        showToast('Removed from wishlist', wishBtn.dataset.name || '', 'wish');
-      } else {
-        api.addWishlist(wishBtn.dataset);
-        showToast('Saved to wishlist', wishBtn.dataset.name || '', 'wish');
+  // Capture phase so sidemenu stopPropagation cannot block cart/wishlist actions
+  document.addEventListener(
+    'click',
+    function (e) {
+      var wishRemove = e.target.closest('[data-wish-remove]');
+      if (wishRemove) {
+        e.preventDefault();
+        e.stopPropagation();
+        var removedSlug = wishRemove.getAttribute('data-wish-remove') || '';
+        var removedName = wishRemove.getAttribute('data-name') || '';
+        if (removedSlug) {
+          api.removeWishlist(removedSlug);
+          showToast('Removed from wishlist', removedName, 'wish');
+        }
+        return;
       }
-      return;
-    }
-    var remove = e.target.closest('.cart_item .remove');
-    if (remove) {
-      e.preventDefault();
-      api.removeFromCart(remove.closest('.cart_item').dataset.slug);
-      return;
-    }
-    var plus = e.target.closest('.quantity-plus');
-    var minus = e.target.closest('.quantity-minus');
-    if (plus || minus) {
-      var row = (plus || minus).closest('.cart_item');
-      if (!row) return;
-      var input = row.querySelector('.qty-input');
-      if (!input) return;
-      api.setQty(row.dataset.slug, (+input.value || 1) + (plus ? 1 : -1));
-      return;
-    }
-    if (e.target.closest('#applyCoupon')) {
-      var ok = api.applyCoupon(document.getElementById('couponCode').value);
-      var notice = document.getElementById('cartNotice');
-      if (notice) {
-        notice.style.display = '';
-        notice.textContent = ok ? 'Coupon applied: 10% off.' : 'Invalid coupon';
+
+      var add = e.target.closest('[data-add-cart]');
+      if (add) {
+        e.preventDefault();
+        e.stopPropagation();
+        var data = {
+          slug: add.dataset.slug,
+          name: add.dataset.name,
+          price: add.dataset.price,
+          image: add.dataset.image,
+          url: add.dataset.url,
+          qty: add.dataset.qty || '1'
+        };
+        // Read live quantity from product detail form when present
+        if (add.closest('.product-about')) {
+          var qtyInput = document.querySelector('.product-about .qty-input');
+          if (qtyInput) data.qty = qtyInput.value || '1';
+        }
+        api.addToCart(data, add);
+        return;
       }
-    }
-  });
+
+      var wishBtn = e.target.closest('[data-wish]');
+      if (wishBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        wishBtn.classList.remove('is-pop');
+        void wishBtn.offsetWidth;
+        wishBtn.classList.add('is-pop');
+        if (api.inWishlist(wishBtn.dataset.slug)) {
+          api.removeWishlist(wishBtn.dataset.slug);
+          showToast('Removed from wishlist', wishBtn.dataset.name || '', 'wish');
+        } else {
+          api.addWishlist(wishBtn.dataset);
+          showToast('Saved to wishlist', wishBtn.dataset.name || '', 'wish');
+        }
+        return;
+      }
+
+      var remove = e.target.closest('.cart_item .remove');
+      if (remove) {
+        e.preventDefault();
+        e.stopPropagation();
+        var row = remove.closest('.cart_item');
+        if (row && row.dataset.slug) api.removeFromCart(row.dataset.slug);
+        return;
+      }
+
+      var plus = e.target.closest('.cart_item .quantity-plus');
+      var minus = e.target.closest('.cart_item .quantity-minus');
+      if (plus || minus) {
+        e.preventDefault();
+        e.stopPropagation();
+        var crow = (plus || minus).closest('.cart_item');
+        if (!crow) return;
+        var input = crow.querySelector('.qty-input');
+        if (!input) return;
+        api.setQty(crow.dataset.slug, (+input.value || 1) + (plus ? 1 : -1));
+        return;
+      }
+
+      if (e.target.closest('#applyCoupon')) {
+        e.preventDefault();
+        var ok = api.applyCoupon(document.getElementById('couponCode').value);
+        var notice = document.getElementById('cartNotice');
+        if (notice) {
+          notice.style.display = '';
+          notice.textContent = ok ? 'Coupon applied: 10% off.' : 'Invalid coupon';
+        }
+      }
+    },
+    true
+  );
 
   document.addEventListener('change', function (e) {
     if (e.target.matches('.cart_item .qty-input')) {
