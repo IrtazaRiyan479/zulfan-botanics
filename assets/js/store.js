@@ -7,8 +7,30 @@
     return inProductPages ? '../' + path : path;
   }
 
+  function normalizeAssetPath(path) {
+    path = String(path || '').trim();
+    if (!path) return '';
+    while (path.indexOf('../') === 0) path = path.slice(3);
+    if (path.charAt(0) === '/') path = path.replace(/^\/+/, '');
+    if (path && path.indexOf('assets/') === -1 && path.indexOf('/') === -1) {
+      path = 'assets/img/product/' + path;
+    }
+    return path;
+  }
+
+  function displayPath(path) {
+    path = normalizeAssetPath(path);
+    if (!path) return '';
+    if (inProductPages && path.indexOf('assets/') === 0) return '../' + path;
+    return path;
+  }
+
   function productPageUrl(slug) {
     return inProductPages ? slug + '.html' : 'product-pages/' + slug + '.html';
+  }
+
+  function storeUrl(slug) {
+    return 'product-pages/' + slug + '.html';
   }
 
   // Client catalog used when the API is unavailable. API remains the authority when it responds.
@@ -26,12 +48,14 @@
   ];
 
   function mapProduct(p) {
+    var img = p.image || '';
+    if (img.indexOf('assets/') === -1) img = 'assets/img/product/' + img;
     return {
       slug: p.slug,
       name: p.name,
       price: +p.price || +p.price_pkr || 0,
-      url: productPageUrl(p.slug),
-      image: rootPath(p.image.indexOf('assets/') === 0 ? p.image : 'assets/img/product/' + p.image),
+      url: storeUrl(p.slug),
+      image: normalizeAssetPath(img),
       category: p.category || 'Hair Oil'
     };
   }
@@ -183,20 +207,23 @@
         return x.slug === p.slug;
       });
       var qty = Math.min(20, Math.max(1, +p.qty || 1));
+      var img = normalizeAssetPath(p.image);
+      var url = String(p.url || storeUrl(p.slug)).replace(/^(\.\.\/)+/, '');
+      if (p.slug && url.indexOf('product-pages/') === -1) url = storeUrl(p.slug);
       if (existing) {
         existing.qty = Math.min(20, (+existing.qty || 1) + qty);
         existing.name = p.name || existing.name;
         existing.price = +p.price || existing.price;
-        existing.image = p.image || existing.image;
-        existing.url = p.url || existing.url;
+        if (img) existing.image = img;
+        if (url) existing.url = url;
       } else {
         c.push({
           slug: p.slug,
           name: p.name,
           price: +p.price || 0,
           qty: qty,
-          image: p.image,
-          url: p.url
+          image: img,
+          url: url
         });
       }
       save('zulfan_cart', c);
@@ -338,7 +365,7 @@
             ' from wishlist">×</button><div class="media-img"><a href="' +
             esc(x.url) +
             '"><img src="' +
-            esc(x.image) +
+            esc(displayPath(x.image)) +
             '" alt="' +
             esc(x.name) +
             '"></a></div><div class="media-body"><h4 class="post-title"><a class="text-inherit" href="' +
@@ -382,7 +409,7 @@
                 '"><td data-title="Product"><a class="cart-productimage" href="' +
                 esc(x.url) +
                 '"><img width="91" height="91" src="' +
-                esc(x.image) +
+                esc(displayPath(x.image)) +
                 '" alt="' +
                 esc(x.name) +
                 '"></a></td><td data-title="Name"><a class="cart-productname" href="' +
@@ -454,8 +481,8 @@
       slug: slug || '',
       name: name || slug,
       price: price,
-      image: img ? img.getAttribute('src') : '',
-      url: href || productPageUrl(slug)
+      image: normalizeAssetPath(img ? img.getAttribute('src') : ''),
+      url: String(href || '').replace(/^(\.\.\/)+/, '') || storeUrl(slug)
     };
   }
 
@@ -473,8 +500,8 @@
       slug: slug,
       name: name || slug,
       price: priceFromText(priceEl && priceEl.textContent),
-      image: img ? img.getAttribute('src') : '',
-      url: productPageUrl(slug)
+      image: normalizeAssetPath(img ? img.getAttribute('src') : ''),
+      url: storeUrl(slug)
     };
   }
 
@@ -488,8 +515,8 @@
     el.dataset.slug = product.slug;
     el.dataset.name = product.name;
     el.dataset.price = String(product.price);
-    el.dataset.image = product.image;
-    el.dataset.url = product.url;
+    el.dataset.image = normalizeAssetPath(product.image);
+    el.dataset.url = String(product.url || '').replace(/^(\.\.\/)+/, '') || storeUrl(product.slug);
   }
 
   function decorate() {
@@ -553,8 +580,8 @@
           item.slug = p.slug;
           item.price = p.price;
           item.name = p.name;
-          item.image = p.image;
-          item.url = p.url;
+          item.image = normalizeAssetPath(p.image);
+          item.url = p.url.indexOf('product-pages/') === 0 ? p.url : storeUrl(p.slug);
           changed = true;
         }
       });
@@ -598,7 +625,7 @@
               '<div class="col-md-6 col-xl-4 product-item"><div class="vs-product product-style2"><div class="product-img"><a href="' +
               esc(p.url) +
               '"><img src="' +
-              esc(p.image) +
+              esc(displayPath(p.image)) +
               '" alt="' +
               esc(p.name) +
               '" class="w-100"></a><div class="actions"><a href="#" class="icon-btn" data-wish="1" data-slug="' +
@@ -807,14 +834,36 @@
   });
 
   var booted = false;
+  function normalizeStoredAssets() {
+    ['zulfan_cart', 'zulfan_wishlist'].forEach(function (key) {
+      var rows = read(key);
+      var changed = false;
+      rows.forEach(function (item) {
+        var img = normalizeAssetPath(item.image);
+        var url = String(item.url || '').replace(/^(\.\.\/)+/, '');
+        if (item.slug && url && url.indexOf('product-pages/') === -1 && /\.html$/i.test(url)) {
+          url = 'product-pages/' + url.split('/').pop();
+        }
+        if (img !== item.image || url !== item.url) {
+          item.image = img;
+          item.url = url;
+          changed = true;
+        }
+      });
+      if (changed) save(key, rows);
+    });
+  }
+
   function boot() {
     if (booted) return;
     booted = true;
     document.documentElement.classList.add('zulfan-page-enter');
+    normalizeStoredAssets();
     decorate();
     render();
     renderShop();
     loadCatalog().then(function () {
+      normalizeStoredAssets();
       renderShop();
       decorate();
       render();
