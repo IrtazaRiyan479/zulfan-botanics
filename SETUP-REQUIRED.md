@@ -13,9 +13,9 @@
 1. In the merchant portal for each enabled provider, configure these public HTTPS callbacks using the deployed origin in `APP_URL`:
    - `APP_URL/api/jazzcash.php?action=return`
    - `APP_URL/api/easypaisa.php?action=return`
-   - `APP_URL/api/hbl.php?action=return`
+   - `APP_URL/api/meezan.php?action=return`
 2. Put merchant credentials only in the server `.env`. Keep `JAZZCASH_ENV=sandbox` and `EASYPAISA_ENV=sandbox` during setup; switch to `live` after approval.
 3. EasyPaisa sandbox often accepts only the mobile number issued by the bank and a test amount of `10`.
-4. Leave `HBL_ENABLED=false` until the HBL credentials, public/private key files, and `HBL_BASE_URL` from the merchant kit are configured. Meezan is the HBL hosted card flow.
+4. Card checkout is Meezan (`api/meezan.php`). Leave it off until `MEEZAN_ENABLED=true`, `MEEZAN_BASE_URL`, and the Meezan key files are set. `api/hbl.php` is a disabled stub and never marks an order paid.
 5. Confirm callbacks reach the public URLs and verify successful and declined test transactions before enabling live payments. Only verified gateway responses change an order to `paid`.
-6. HBL Pay's sandbox endpoint hostname and merchant payload details are provided by the bank kit; set `HBL_BASE_URL` to that host when received.
+6. Meezan's sandbox hostname and merchant payload details come from the bank kit; set `MEEZAN_BASE_URL` to that host when received. Do not point card checkout at HBL.
